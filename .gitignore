@@ -1,0 +1,29 @@
+# Secrets
+wp-config.php
+wp-content/sgs_encrypt_key.php
+.env
+.env.*
+
+# Logs
+*.log
+php_errorlog
+wp-content/debug.log
+
+# Media & generated content
+wp-content/uploads/
+wp-content/jetpack-waf/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/backup*/
+wp-content/ai1wm-backups/
+wp-content/updraft/
+wp-content/wflogs/
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
