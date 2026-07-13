@@ -1,0 +1,406 @@
+/**
+ * Markimatics Template — Main Styles
+ * All classes use the mk- prefix to avoid WordPress theme conflicts.
+ */
+
+@import url("variables.css");
+
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.mk-body {
+  margin: 0;
+  font-family: var(--mk-font-family);
+  font-size: var(--mk-font-size-base);
+  line-height: var(--mk-line-height);
+  color: var(--mk-color-text);
+  background-color: var(--mk-color-white);
+}
+
+.mk-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mk-body a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mk-container {
+  width: 100%;
+  max-width: var(--mk-container-max);
+  margin-inline: auto;
+  padding-inline: var(--mk-container-padding);
+}
+
+/* ---- Buttons ---- */
+.mk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  font-family: inherit;
+  font-size: var(--mk-font-size-base);
+  font-weight: var(--mk-font-weight-semibold);
+  border: none;
+  border-radius: var(--mk-border-radius-pill);
+  cursor: pointer;
+  transition: background-color var(--mk-transition), transform var(--mk-transition);
+}
+
+.mk-btn:hover {
+  transform: translateY(-1px);
+}
+
+.mk-btn--primary {
+  background-color: var(--mk-color-primary-light);
+  color: var(--mk-color-white);
+}
+
+.mk-btn--primary:hover {
+  background-color: var(--mk-color-primary);
+}
+
+.mk-btn--accent {
+  background-color: var(--mk-color-accent);
+  color: var(--mk-color-white);
+}
+
+.mk-btn--accent:hover {
+  background-color: var(--mk-color-accent-hover);
+}
+
+.mk-btn--sm {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--mk-font-size-sm);
+}
+
+/* ---- Header ---- */
+.mk-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--mk-color-white);
+  box-shadow: var(--mk-shadow-sm);
+}
+
+.mk-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--mk-header-height);
+  gap: 1rem;
+}
+
+.mk-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--mk-font-size-xl);
+  font-weight: var(--mk-font-weight-bold);
+  color: var(--mk-color-primary);
+}
+
+.mk-logo__icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.mk-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mk-nav__link {
+  font-weight: var(--mk-font-weight-semibold);
+  color: var(--mk-color-primary);
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--mk-transition);
+}
+
+.mk-nav__link:hover,
+.mk-nav__link--active {
+  border-bottom-color: var(--mk-color-primary);
+}
+
+.mk-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mk-nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--mk-color-primary);
+  transition: var(--mk-transition);
+}
+
+/* ---- Hero ---- */
+.mk-hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background-color: var(--mk-color-primary-dark);
+  background-image: var(--mk-hero-bg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.mk-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mk-hero-overlay);
+}
+
+.mk-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  padding-block: 4rem;
+}
+
+.mk-hero__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 5vw, var(--mk-font-size-3xl));
+  font-weight: var(--mk-font-weight-bold);
+  line-height: 1.2;
+  color: var(--mk-color-white);
+}
+
+.mk-hero__title-accent {
+  color: var(--mk-color-highlight);
+}
+
+.mk-hero__subtitle {
+  margin: 0 0 2rem;
+  font-size: var(--mk-font-size-lg);
+  color: var(--mk-color-white);
+  opacity: 0.95;
+}
+
+/* ---- Section headings ---- */
+.mk-section {
+  padding-block: var(--mk-section-padding-y);
+}
+
+.mk-section--light {
+  background-color: var(--mk-color-bg-light);
+}
+
+.mk-section__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.mk-section__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 4vw, var(--mk-font-size-2xl));
+  font-weight: var(--mk-font-weight-bold);
+  color: var(--mk-color-primary);
+}
+
+.mk-section__subtitle {
+  margin: 0;
+  font-size: var(--mk-font-size-lg);
+  color: var(--mk-color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.mk-section__subtitle::before,
+.mk-section__subtitle::after {
+  content: "";
+  flex: 0 0 40px;
+  height: 1px;
+  background-color: var(--mk-color-border);
+}
+
+/* ---- Course grid ---- */
+.mk-courses__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.mk-course-card {
+  position: relative;
+  min-height: 280px;
+  border-radius: var(--mk-border-radius-lg);
+  overflow: hidden;
+  background-color: var(--mk-color-primary-dark);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mk-course-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mk-card-overlay);
+  transition: opacity var(--mk-transition);
+}
+
+.mk-course-card:hover::before {
+  opacity: 0.9;
+}
+
+.mk-course-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 280px;
+  padding: 2rem;
+}
+
+.mk-course-card__title {
+  margin: 0 0 0.25rem;
+  font-size: var(--mk-font-size-2xl);
+  font-weight: var(--mk-font-weight-bold);
+  color: var(--mk-color-white);
+}
+
+.mk-course-card__desc {
+  margin: 0 0 1.25rem;
+  font-size: var(--mk-font-size-base);
+  color: var(--mk-color-white);
+  opacity: 0.9;
+}
+
+/* Course card backgrounds — controlled via variables.css */
+.mk-course-card--ela {
+  background-image: var(--mk-course-ela-bg);
+}
+
+.mk-course-card--science {
+  background-image: var(--mk-course-science-bg);
+}
+
+.mk-course-card--math {
+  background-image: var(--mk-course-math-bg);
+}
+
+.mk-course-card--nclex {
+  background-image: var(--mk-course-nclex-bg);
+}
+
+/* ---- Features ---- */
+.mk-features__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.mk-feature-card {
+  background-color: var(--mk-color-white);
+  border-radius: var(--mk-border-radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--mk-shadow-card);
+  transition: transform var(--mk-transition), box-shadow var(--mk-transition);
+}
+
+.mk-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mk-shadow-md);
+}
+
+.mk-feature-card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+}
+
+.mk-feature-card__title {
+  margin: 0;
+  font-size: var(--mk-font-size-lg);
+  font-weight: var(--mk-font-weight-bold);
+  color: var(--mk-color-primary);
+}
+
+/* ---- Footer placeholder ---- */
+.mk-footer {
+  background-color: var(--mk-color-primary-dark);
+  color: var(--mk-color-white);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: var(--mk-font-size-sm);
+  opacity: 0.9;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .mk-features__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .mk-nav-toggle {
+    display: flex;
+  }
+
+  .mk-nav {
+    display: none;
+    position: absolute;
+    top: var(--mk-header-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background-color: var(--mk-color-white);
+    box-shadow: var(--mk-shadow-md);
+    padding: 1rem 0;
+  }
+
+  .mk-nav--open {
+    display: flex;
+  }
+
+  .mk-nav__link {
+    padding: 0.75rem var(--mk-container-padding);
+    border-bottom: none;
+    width: 100%;
+  }
+
+  .mk-header__cta {
+    display: none;
+  }
+
+  .mk-courses__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mk-hero {
+    min-height: 400px;
+  }
+
+  .mk-hero__content {
+    padding-block: 3rem;
+  }
+}

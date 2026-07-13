@@ -1,0 +1,78 @@
+/**
+ * Markimatics Template — Design Tokens
+ * -----------------------------------
+ * Edit these values to match your WordPress theme or brand.
+ * In WordPress: paste into Appearance → Customize → Additional CSS,
+ * or enqueue this file in your child theme's functions.php.
+ */
+
+:root {
+  /* Brand colors */
+  --mk-color-primary: #004a99;
+  --mk-color-primary-dark: #003366;
+  --mk-color-primary-light: #1a6bb5;
+  --mk-color-accent: #e67e22;
+  --mk-color-accent-hover: #d35400;
+  --mk-color-highlight: #f1c40f;
+  --mk-color-white: #ffffff;
+  --mk-color-text: #1a2b4a;
+  --mk-color-text-muted: #5a6a8a;
+  --mk-color-bg-light: #f8f9fa;
+  --mk-color-border: #e2e8f0;
+
+  /* Typography */
+  --mk-font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mk-font-size-base: 1rem;
+  --mk-font-size-sm: 0.875rem;
+  --mk-font-size-lg: 1.125rem;
+  --mk-font-size-xl: 1.5rem;
+  --mk-font-size-2xl: 2rem;
+  --mk-font-size-3xl: 2.75rem;
+  --mk-font-weight-normal: 400;
+  --mk-font-weight-semibold: 600;
+  --mk-font-weight-bold: 700;
+  --mk-line-height: 1.6;
+
+  /* Layout */
+  --mk-container-max: 1200px;
+  --mk-container-padding: 1.5rem;
+  --mk-section-padding-y: 4rem;
+  --mk-header-height: 72px;
+  --mk-border-radius: 8px;
+  --mk-border-radius-lg: 12px;
+  --mk-border-radius-pill: 50px;
+
+  /* Shadows */
+  --mk-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --mk-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --mk-shadow-card: 0 4px 24px rgba(0, 74, 153, 0.1);
+
+  /* Transitions */
+  --mk-transition: 0.25s ease;
+
+  /* Hero overlay */
+  --mk-hero-overlay: linear-gradient(
+    90deg,
+    rgba(0, 51, 102, 0.75) 0%,
+    rgba(0, 51, 102, 0.4) 50%,
+    rgba(0, 51, 102, 0.1) 100%
+  );
+
+  /* Course card overlay */
+  --mk-card-overlay: linear-gradient(
+    to top,
+    rgba(0, 30, 60, 0.85) 0%,
+    rgba(0, 30, 60, 0.4) 50%,
+    rgba(0, 30, 60, 0.2) 100%
+  );
+
+  /*
+   * Background images — replace with your WordPress Media Library URLs.
+   * Example: --mk-hero-bg: url("https://yoursite.com/wp-content/uploads/hero.jpg");
+   */
+  --mk-hero-bg: url("../images/hero-bg.svg");
+  --mk-course-ela-bg: url("../images/course-ela.svg");
+  --mk-course-science-bg: url("../images/course-science.svg");
+  --mk-course-math-bg: url("../images/course-math.svg");
+  --mk-course-nclex-bg: url("../images/course-nclex.svg");
+}
