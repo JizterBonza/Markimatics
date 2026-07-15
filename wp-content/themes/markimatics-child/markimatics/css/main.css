@@ -67,9 +67,11 @@
   background-color: var(--mk-color-primary);
 }
 
-.mk-btn--accent {
+.mk-btn--accent,
+.mk-body a.mk-btn--accent {
   background-color: var(--mk-color-accent);
   color: var(--mk-color-white);
+  border-radius: var(--mk-border-radius);
 }
 
 .mk-btn--accent:hover {
