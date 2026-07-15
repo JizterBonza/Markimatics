@@ -1,16 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-  <rect width="800" height="500" fill="#f0f4f8"/>
-  <rect x="200" y="220" width="180" height="100" rx="8" fill="#333"/>
-  <rect x="220" y="240" width="140" height="60" fill="#1a1a2e"/>
-  <line x1="250" y1="280" x2="330" y2="240" stroke="#4a9" stroke-width="2"/>
-  <line x1="280" y1="300" x2="350" y2="260" stroke="#4a9" stroke-width="2"/>
-  <rect x="450" y="250" width="8" height="80" fill="#f1c40f"/>
-  <polygon points="454,250 470,270 438,270" fill="#e74c3c"/>
-  <rect x="0" y="0" width="800" height="500" fill="url(#g)"/>
-  <defs>
-    <linearGradient id="g" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#001e3c" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#001e3c" stop-opacity="0.2"/>
-    </linearGradient>
-  </defs>
+  <rect width="800" height="500" fill="#eff6fd"/>
+  <text x="520" y="290" font-family="Georgia, serif" font-size="90" fill="#0072ce" opacity="0.25">&#960;</text>
+  <text x="620" y="380" font-family="Georgia, serif" font-size="70" fill="#0072ce" opacity="0.2">&#8721;</text>
+  <line x1="470" y1="180" x2="560" y2="180" stroke="#0072ce" stroke-width="6" opacity="0.3"/>
+  <line x1="515" y1="135" x2="515" y2="225" stroke="#0072ce" stroke-width="6" opacity="0.3"/>
+  <circle cx="700" cy="150" r="50" fill="#0072ce" opacity="0.1"/>
+  <circle cx="640" cy="440" r="70" fill="#0072ce" opacity="0.08"/>
 </svg>

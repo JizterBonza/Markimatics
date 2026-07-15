@@ -1,14 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-  <rect width="800" height="500" fill="#f8f9fa"/>
-  <path d="M350 200 Q400 150 450 200 Q500 250 450 300 Q400 350 350 300 Q300 250 350 200" fill="none" stroke="#c0392b" stroke-width="6"/>
-  <circle cx="280" cy="280" r="20" fill="#e74c3c" opacity="0.8"/>
-  <circle cx="520" cy="280" r="15" fill="#3498db" opacity="0.8"/>
-  <rect x="200" y="350" width="80" height="40" rx="4" fill="#fff" stroke="#ccc"/>
-  <rect x="0" y="0" width="800" height="500" fill="url(#g)"/>
-  <defs>
-    <linearGradient id="g" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#001e3c" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#001e3c" stop-opacity="0.2"/>
-    </linearGradient>
-  </defs>
+  <rect width="800" height="500" fill="#f7f1fa"/>
+  <rect x="565" y="200" width="40" height="130" rx="8" fill="#8e44ad" opacity="0.25"/>
+  <rect x="520" y="245" width="130" height="40" rx="8" fill="#8e44ad" opacity="0.25"/>
+  <path d="M400 380 Q450 330 500 380 T600 380" fill="none" stroke="#8e44ad" stroke-width="5" opacity="0.3"/>
+  <circle cx="700" cy="140" r="45" fill="#8e44ad" opacity="0.12"/>
+  <circle cx="450" cy="450" r="55" fill="#8e44ad" opacity="0.08"/>
 </svg>

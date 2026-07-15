@@ -245,27 +245,20 @@
   gap: 1.5rem;
 }
 
+/*
+ * Course cards share the "Science" treatment: colored title bar pinned to the
+ * top, no dark overlay, and the CTA anchored to the bottom. Each modifier
+ * sets its accent color and background image.
+ */
 .mk-course-card {
   position: relative;
   min-height: 280px;
   border-radius: var(--mk-border-radius-lg);
   overflow: hidden;
-  background-color: var(--mk-color-primary-dark);
+  background-color: var(--mk-color-white);
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
-}
-
-.mk-course-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--mk-card-overlay);
-  transition: opacity var(--mk-transition);
-}
-
-.mk-course-card:hover::before {
-  opacity: 0.9;
 }
 
 .mk-course-card__content {
@@ -273,52 +266,19 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   height: 100%;
   min-height: 280px;
-  padding: 2rem;
+  padding: 0 2rem 2rem;
 }
 
 .mk-course-card__title {
-  margin: 0 0 0.25rem;
-  font-size: var(--mk-font-size-2xl);
-  font-weight: var(--mk-font-weight-bold);
-  color: var(--mk-color-white);
-}
-
-.mk-course-card__desc {
-  margin: 0 0 1.25rem;
-  font-size: var(--mk-font-size-base);
-  color: var(--mk-color-white);
-  opacity: 0.9;
-}
-
-/* Course card backgrounds — controlled via variables.css */
-.mk-course-card--ela {
-  background-image: var(--mk-course-ela-bg);
-}
-
-.mk-course-card--science {
-  background-image: var(--mk-course-science-bg);
-  background-color: var(--mk-color-white);
-  background-position: center top;
-}
-
-/* Science card: no dark overlay, content pinned to the top like the reference art */
-.mk-course-card--science::before {
-  background: none;
-}
-
-.mk-course-card--science .mk-course-card__content {
-  justify-content: flex-start;
-  padding-top: 0;
-}
-
-.mk-course-card--science .mk-course-card__title {
   margin: 0 -2rem 0.5rem;
   padding: 0.75rem 2rem;
   font-size: var(--mk-font-size-3xl);
-  background-color: #00a651;
+  font-weight: var(--mk-font-weight-bold);
+  color: var(--mk-color-white);
+  background-color: var(--mk-card-accent, var(--mk-color-primary));
   background-image: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.25) 0%,
@@ -326,24 +286,37 @@
   );
 }
 
-.mk-course-card--science .mk-course-card__desc {
-  color: #000000;
+.mk-course-card__desc {
+  margin: 0 0 1.25rem;
   font-size: var(--mk-font-size-xl);
   font-weight: var(--mk-font-weight-bold);
-  opacity: 1;
+  color: #000000;
 }
 
-.mk-course-card--science .mk-btn {
+.mk-course-card .mk-btn {
   margin-top: auto;
   align-self: flex-start;
   border-radius: var(--mk-border-radius);
 }
 
+/* Accent colors + backgrounds (image URLs live in variables.css) */
+.mk-course-card--ela {
+  --mk-card-accent: #e63946;
+  background-image: var(--mk-course-ela-bg);
+}
+
+.mk-course-card--science {
+  --mk-card-accent: #00a651;
+  background-image: var(--mk-course-science-bg);
+}
+
 .mk-course-card--math {
+  --mk-card-accent: #0072ce;
   background-image: var(--mk-course-math-bg);
 }
 
 .mk-course-card--nclex {
+  --mk-card-accent: #8e44ad;
   background-image: var(--mk-course-nclex-bg);
 }
 
