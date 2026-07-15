@@ -70,7 +70,7 @@
    * Background images — replace with your WordPress Media Library URLs.
    * Example: --mk-hero-bg: url("https://yoursite.com/wp-content/uploads/hero.jpg");
    */
-  --mk-hero-bg: url("../images/hero-bg.svg");
+  --mk-hero-bg: url("../images/Home_Banner.png");
   --mk-course-ela-bg: url("../images/course-ela.svg");
   --mk-course-science-bg: url("../images/course-science.svg");
   --mk-course-math-bg: url("../images/course-math.svg");
