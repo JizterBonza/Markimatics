@@ -58,7 +58,8 @@
   transform: translateY(-1px);
 }
 
-.mk-btn--primary {
+.mk-btn--primary,
+.mk-body a.mk-btn--primary {
   background-color: var(--mk-color-primary-light);
   color: var(--mk-color-white);
 }
