@@ -301,7 +301,7 @@
 
 /* Accent colors + backgrounds (image URLs live in variables.css) */
 .mk-course-card--ela {
-  --mk-card-accent: #e63946;
+  --mk-card-accent: #f1c40f;
   background-image: var(--mk-course-ela-bg);
 }
 
