@@ -300,7 +300,7 @@
 .mk-course-card--science {
   background-image: var(--mk-course-science-bg);
   background-color: var(--mk-color-white);
-  background-position: center bottom;
+  background-position: center top;
 }
 
 /* Science card: no dark overlay, content pinned to the top like the reference art */
@@ -316,6 +316,7 @@
 .mk-course-card--science .mk-course-card__title {
   margin: 0 -2rem 0.5rem;
   padding: 0.75rem 2rem;
+  font-size: var(--mk-font-size-3xl);
   background-color: #00a651;
   background-image: linear-gradient(
     180deg,
@@ -325,13 +326,16 @@
 }
 
 .mk-course-card--science .mk-course-card__desc {
-  color: var(--mk-color-text);
+  color: #000000;
+  font-size: var(--mk-font-size-xl);
   font-weight: var(--mk-font-weight-bold);
   opacity: 1;
 }
 
 .mk-course-card--science .mk-btn {
+  margin-top: auto;
   align-self: flex-start;
+  border-radius: var(--mk-border-radius);
 }
 
 .mk-course-card--math {
