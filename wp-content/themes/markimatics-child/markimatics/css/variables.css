@@ -71,8 +71,8 @@
    * Example: --mk-hero-bg: url("https://yoursite.com/wp-content/uploads/hero.jpg");
    */
   --mk-hero-bg: url("../images/Home_Banner.png");
-  --mk-course-ela-bg: url("../images/course-ela.svg");
+  --mk-course-ela-bg: url("../images/ELA_bg.png");
   --mk-course-science-bg: url("../images/Science_bg.png");
-  --mk-course-math-bg: url("../images/course-math.svg");
-  --mk-course-nclex-bg: url("../images/course-nclex.svg");
+  --mk-course-math-bg: url("../images/Math_bg.png");
+  --mk-course-nclex-bg: url("../images/NCLEX_bg.png");
 }
