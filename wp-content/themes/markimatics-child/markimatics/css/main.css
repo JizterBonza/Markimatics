@@ -49,7 +49,7 @@
   font-size: var(--mk-font-size-base);
   font-weight: var(--mk-font-weight-semibold);
   border: none;
-  border-radius: var(--mk-border-radius-pill);
+  border-radius: var(--mk-border-radius-lg);
   cursor: pointer;
   transition: background-color var(--mk-transition), transform var(--mk-transition);
 }
