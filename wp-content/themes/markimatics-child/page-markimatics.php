@@ -39,7 +39,6 @@ $mk_home   = get_permalink();
 				<a href="<?php echo esc_url( $mk_home . '#home' ); ?>" class="mk-nav__link mk-nav__link--active"><?php esc_html_e( 'Home', 'markimatics-child' ); ?></a>
 				<a href="<?php echo esc_url( $mk_home . '#about' ); ?>" class="mk-nav__link"><?php esc_html_e( 'About', 'markimatics-child' ); ?></a>
 				<a href="<?php echo esc_url( $mk_home . '#courses' ); ?>" class="mk-nav__link"><?php esc_html_e( 'Courses', 'markimatics-child' ); ?></a>
-				<!-- <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="mk-nav__link"><?php esc_html_e( 'Blog', 'markimatics-child' ); ?></a> -->
 				<a href="<?php echo esc_url( $mk_home . '#contact' ); ?>" class="mk-nav__link"><?php esc_html_e( 'Contact', 'markimatics-child' ); ?></a>
 			</nav>
 
