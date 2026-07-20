@@ -242,7 +242,9 @@
 .mk-courses__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 1rem;
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 /*
@@ -252,7 +254,7 @@
  */
 .mk-course-card {
   position: relative;
-  min-height: 280px;
+  min-height: 200px;
   border-radius: var(--mk-border-radius-lg);
   overflow: hidden;
   background-color: var(--mk-color-white);
@@ -268,14 +270,14 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  min-height: 280px;
-  padding: 0 2rem 2rem;
+  min-height: 200px;
+  padding: 0 1.25rem 1.25rem;
 }
 
 .mk-course-card__title {
-  margin: 0 -2rem 0.5rem;
-  padding: 0.75rem 2rem;
-  font-size: var(--mk-font-size-3xl);
+  margin: 0 -1.25rem 0.35rem;
+  padding: 0.5rem 1.25rem;
+  font-size: var(--mk-font-size-2xl);
   font-weight: var(--mk-font-weight-bold);
   color: var(--mk-color-white);
   background-color: var(--mk-card-accent, var(--mk-color-primary));
@@ -287,9 +289,9 @@
 }
 
 .mk-course-card__desc {
-  margin: 0 0 1.25rem;
-  padding: 0.35rem 0.6rem;
-  font-size: var(--mk-font-size-xl);
+  margin: 0 0 0.75rem;
+  padding: 0.25rem 0.5rem;
+  font-size: var(--mk-font-size-lg);
   font-weight: var(--mk-font-weight-bold);
   color: #000000;
   background-color: rgba(255, 255, 255, 0.9);
