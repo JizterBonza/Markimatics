@@ -288,9 +288,13 @@
 
 .mk-course-card__desc {
   margin: 0 0 1.25rem;
+  padding: 0.35rem 0.6rem;
   font-size: var(--mk-font-size-xl);
   font-weight: var(--mk-font-weight-bold);
   color: #000000;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: fit-content;
+  max-width: 100%;
 }
 
 .mk-course-card .mk-btn {
