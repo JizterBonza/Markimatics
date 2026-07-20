@@ -242,7 +242,7 @@
 .mk-courses__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 2rem;
   max-width: 720px;
   margin-inline: auto;
 }
