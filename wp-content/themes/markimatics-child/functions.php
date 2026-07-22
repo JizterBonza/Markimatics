@@ -8,10 +8,69 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Enqueue parent theme styles (skipped on the landing page template).
+ * Markimatics full-page templates that use the custom design system.
+ *
+ * @return string[]
+ */
+function markimatics_page_templates() {
+	return array( 'page-markimatics.php', 'page-subject.php' );
+}
+
+/**
+ * Whether the current view uses a Markimatics page template.
+ *
+ * @return bool
+ */
+function markimatics_is_template() {
+	foreach ( markimatics_page_templates() as $template ) {
+		if ( is_page_template( $template ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Resolve the permalink for a subject page by slug.
+ *
+ * Looks for a published page with the given slug that uses the Subject template.
+ * Falls back to any page with that slug, then to a pretty URL path.
+ *
+ * @param string $slug Subject page slug (e.g. science, ela, math, nclex).
+ * @return string
+ */
+function markimatics_get_subject_url( $slug ) {
+	$slug = sanitize_title( $slug );
+
+	$pages = get_posts(
+		array(
+			'name'           => $slug,
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'meta_key'       => '_wp_page_template',
+			'meta_value'     => 'page-subject.php',
+		)
+	);
+
+	if ( ! empty( $pages ) ) {
+		return get_permalink( $pages[0] );
+	}
+
+	$page = get_page_by_path( $slug );
+	if ( $page instanceof WP_Post ) {
+		return get_permalink( $page );
+	}
+
+	return home_url( '/' . $slug . '/' );
+}
+
+/**
+ * Enqueue parent theme styles (skipped on Markimatics templates).
  */
 function markimatics_child_enqueue_parent_styles() {
-	if ( is_page_template( 'page-markimatics.php' ) ) {
+	if ( markimatics_is_template() ) {
 		return;
 	}
 
@@ -25,10 +84,10 @@ function markimatics_child_enqueue_parent_styles() {
 add_action( 'wp_enqueue_scripts', 'markimatics_child_enqueue_parent_styles' );
 
 /**
- * Remove Astra front-end assets on the landing page to avoid style conflicts.
+ * Remove Astra front-end assets on Markimatics templates to avoid style conflicts.
  */
 function markimatics_dequeue_astra_on_landing() {
-	if ( ! is_page_template( 'page-markimatics.php' ) ) {
+	if ( ! markimatics_is_template() ) {
 		return;
 	}
 
@@ -47,15 +106,15 @@ function markimatics_dequeue_astra_on_landing() {
 add_action( 'wp_enqueue_scripts', 'markimatics_dequeue_astra_on_landing', 99 );
 
 /**
- * Enqueue Markimatics landing page assets.
+ * Enqueue Markimatics template assets.
  */
 function markimatics_enqueue_assets() {
-	if ( ! is_page_template( 'page-markimatics.php' ) ) {
+	if ( ! markimatics_is_template() ) {
 		return;
 	}
 
 	$base = get_stylesheet_directory_uri() . '/markimatics';
-	$ver  = '1.0.0';
+	$ver  = '1.1.0';
 
 	wp_enqueue_style(
 		'markimatics-variables',
@@ -82,13 +141,13 @@ function markimatics_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'markimatics_enqueue_assets' );
 
 /**
- * Add mk-body class on the Markimatics landing page template.
+ * Add mk-body class on Markimatics templates.
  *
  * @param string[] $classes Body classes.
  * @return string[]
  */
 function markimatics_body_class( $classes ) {
-	if ( is_page_template( 'page-markimatics.php' ) ) {
+	if ( markimatics_is_template() ) {
 		$classes[] = 'mk-body';
 	}
 

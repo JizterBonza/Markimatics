@@ -11,6 +11,13 @@ defined( 'ABSPATH' ) || exit;
 
 $mk_assets = get_stylesheet_directory_uri() . '/markimatics';
 $mk_home   = get_permalink();
+
+$mk_subject_urls = array(
+	'ela'     => markimatics_get_subject_url( 'ela' ),
+	'science' => markimatics_get_subject_url( 'science' ),
+	'math'    => markimatics_get_subject_url( 'math' ),
+	'nclex'   => markimatics_get_subject_url( 'nclex' ),
+);
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -68,7 +75,7 @@ $mk_home   = get_permalink();
 						<div class="mk-course-card__content">
 							<h2 class="mk-course-card__title"><?php esc_html_e( 'ELA', 'markimatics-child' ); ?></h2>
 							<p class="mk-course-card__desc"><?php esc_html_e( 'English Language Arts', 'markimatics-child' ); ?></p>
-							<a href="#" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
+							<a href="<?php echo esc_url( $mk_subject_urls['ela'] ); ?>" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
 						</div>
 					</article>
 
@@ -76,7 +83,7 @@ $mk_home   = get_permalink();
 						<div class="mk-course-card__content">
 							<h2 class="mk-course-card__title"><?php esc_html_e( 'Science', 'markimatics-child' ); ?></h2>
 							<p class="mk-course-card__desc"><?php esc_html_e( 'Explore the World of Science', 'markimatics-child' ); ?></p>
-							<a href="#" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
+							<a href="<?php echo esc_url( $mk_subject_urls['science'] ); ?>" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
 						</div>
 					</article>
 
@@ -84,7 +91,7 @@ $mk_home   = get_permalink();
 						<div class="mk-course-card__content">
 							<h2 class="mk-course-card__title"><?php esc_html_e( 'Math', 'markimatics-child' ); ?></h2>
 							<p class="mk-course-card__desc"><?php esc_html_e( 'Mathematics Made Easy', 'markimatics-child' ); ?></p>
-							<a href="#" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
+							<a href="<?php echo esc_url( $mk_subject_urls['math'] ); ?>" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
 						</div>
 					</article>
 
@@ -92,7 +99,7 @@ $mk_home   = get_permalink();
 						<div class="mk-course-card__content">
 							<h2 class="mk-course-card__title"><?php esc_html_e( 'NCLEX', 'markimatics-child' ); ?></h2>
 							<p class="mk-course-card__desc"><?php esc_html_e( 'Nursing Exam Prep', 'markimatics-child' ); ?></p>
-							<a href="#" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
+							<a href="<?php echo esc_url( $mk_subject_urls['nclex'] ); ?>" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
 						</div>
 					</article>
 
