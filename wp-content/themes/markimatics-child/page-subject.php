@@ -133,7 +133,7 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 						width="40"
 						height="40"
 					>
-					<h2 class="mk-grades__title"><?php esc_html_e( 'Select a Grade Level', 'markimatics-child' ); ?></h2>
+					<h2 class="mk-grades__title" style="margin-bottom: 0px;"><?php esc_html_e( 'Select a Grade Level', 'markimatics-child' ); ?></h2>
 				</header>
 
 				<?php if ( ! empty( $grades ) ) : ?>
