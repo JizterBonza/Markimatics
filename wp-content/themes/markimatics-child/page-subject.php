@@ -42,16 +42,19 @@ if ( $subject_post instanceof WP_Post ) {
 		: wp_trim_words( wp_strip_all_tags( $subject_post->post_content ), 40 );
 }
 
-$hero_fallbacks = array(
-	'science' => $mk_assets . '/images/Science final2.png',
-	'ela'     => $mk_assets . '/images/ELA_bg.png',
-	'math'    => $mk_assets . '/images/Math_bg.png',
-	'nclex'   => $mk_assets . '/images/NCLEX_bg.png',
-);
+// Science uses a full-bleed CSS banner; other subjects may show a side illustration.
+$hero_image = null;
+if ( 'science' !== $subject_slug ) {
+	$hero_fallbacks = array(
+		'ela'   => $mk_assets . '/images/ELA_bg.png',
+		'math'  => $mk_assets . '/images/Math_bg.png',
+		'nclex' => $mk_assets . '/images/NCLEX_bg.png',
+	);
 
-$hero_image = get_the_post_thumbnail_url( $subject_id, 'large' );
-if ( ! $hero_image && isset( $hero_fallbacks[ $subject_slug ] ) ) {
-	$hero_image = $hero_fallbacks[ $subject_slug ];
+	$hero_image = get_the_post_thumbnail_url( $subject_id, 'large' );
+	if ( ! $hero_image && isset( $hero_fallbacks[ $subject_slug ] ) ) {
+		$hero_image = $hero_fallbacks[ $subject_slug ];
+	}
 }
 
 $grade_colors = array(

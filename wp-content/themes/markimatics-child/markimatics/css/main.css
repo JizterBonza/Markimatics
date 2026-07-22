@@ -379,7 +379,22 @@
 }
 
 .mk-subject-hero--science {
-  background: radial-gradient(ellipse at 25% 40%, #1a5c3a 0%, #0a3320 65%);
+  background-color: #0a3320;
+  background-image: var(--mk-subject-science-bg);
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+.mk-subject-hero--science .mk-subject-hero__stars,
+.mk-subject-hero--science .mk-subject-hero__media {
+  display: none;
+}
+
+.mk-subject-hero--science .mk-subject-hero__inner {
+  grid-template-columns: 1fr;
+  max-width: 50%;
+  margin-inline: 0 auto 0 0;
 }
 
 .mk-subject-hero--ela {
@@ -622,6 +637,14 @@
     text-align: left;
     min-height: 0;
     padding-block: 2rem 2.5rem;
+  }
+
+  .mk-subject-hero--science .mk-subject-hero__inner {
+    max-width: 100%;
+  }
+
+  .mk-subject-hero--science {
+    background-position: center center;
   }
 
   .mk-subject-hero__media {
