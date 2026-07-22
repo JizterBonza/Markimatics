@@ -371,9 +371,14 @@
 }
 
 /* ---- Subject page hero ---- */
+.mk-body--subject .mk-container {
+  max-width: none;
+}
+
 .mk-subject-hero {
   position: relative;
   overflow: hidden;
+  width: 100%;
   background: radial-gradient(ellipse at 25% 40%, #1a5c3a 0%, #0a3320 65%);
   color: var(--mk-color-white);
 }
@@ -393,8 +398,10 @@
 
 .mk-subject-hero--science .mk-subject-hero__inner {
   grid-template-columns: 1fr;
-  max-width: 50%;
-  margin-inline: 0 auto 0 0;
+}
+
+.mk-subject-hero--science .mk-subject-hero__text {
+  max-width: min(36rem, 48%);
 }
 
 .mk-subject-hero--ela {
@@ -497,6 +504,7 @@
 /* ---- Grade level grid ---- */
 .mk-grades {
   padding-block: 3rem 4rem;
+  width: 100%;
   background-color: var(--mk-color-white);
 }
 
@@ -639,7 +647,7 @@
     padding-block: 2rem 2.5rem;
   }
 
-  .mk-subject-hero--science .mk-subject-hero__inner {
+  .mk-subject-hero--science .mk-subject-hero__text {
     max-width: 100%;
   }
 
