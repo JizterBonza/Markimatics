@@ -372,7 +372,7 @@
 
 /* ---- Subject page hero ---- */
 .mk-body--subject .mk-container {
-  max-width: none;
+  max-width: 1400px;
 }
 
 .mk-subject-hero {
