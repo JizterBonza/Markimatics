@@ -68,13 +68,33 @@ $grade_colors = array(
 	'#26a69a',
 );
 
-$grades = get_pages(
-	array(
-		'parent'      => $subject_id,
-		'sort_column' => 'menu_order,post_title',
-		'sort_order'  => 'ASC',
-	)
-);
+// Prefer predefined subject grades (e.g. Science); fall back to child pages.
+$grade_cards = markimatics_get_subject_grades( $subject_slug );
+
+if ( empty( $grade_cards ) ) {
+	$child_pages = get_pages(
+		array(
+			'parent'      => $subject_id,
+			'sort_column' => 'menu_order,post_title',
+			'sort_order'  => 'ASC',
+		)
+	);
+
+	foreach ( $child_pages as $index => $grade ) {
+		$grade_cards[] = array(
+			'label' => $grade->post_title,
+			'slug'  => $grade->post_name,
+			'color' => $grade_colors[ $index % count( $grade_colors ) ],
+			'url'   => get_permalink( $grade->ID ),
+			'image' => get_the_post_thumbnail_url( $grade->ID, 'medium_large' ),
+		);
+	}
+} else {
+	foreach ( $grade_cards as $index => $grade ) {
+		$grade_cards[ $index ]['url']   = markimatics_get_grade_url( $subject_id, $grade['slug'] );
+		$grade_cards[ $index ]['image'] = markimatics_get_grade_card_image( $subject_title, $grade['label'] );
+	}
+}
 
 $subject_modifier = sanitize_html_class( $subject_slug );
 ?>
@@ -136,53 +156,45 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 					<h2 class="mk-grades__title" style="margin-bottom: 0px;"><?php esc_html_e( 'Select a Grade Level', 'markimatics-child' ); ?></h2>
 				</header>
 
-				<?php if ( ! empty( $grades ) ) : ?>
+				<?php if ( ! empty( $grade_cards ) ) : ?>
 					<div class="mk-grades__grid">
-						<?php foreach ( $grades as $index => $grade ) : ?>
+						<?php foreach ( $grade_cards as $grade ) : ?>
 							<?php
-							$color       = $grade_colors[ $index % count( $grade_colors ) ];
-							$grade_img   = get_the_post_thumbnail_url( $grade->ID, 'medium_large' );
-							$grade_topics = $grade->post_excerpt
-								? $grade->post_excerpt
-								: wp_trim_words( wp_strip_all_tags( $grade->post_content ), 12 );
-							$grade_url   = get_permalink( $grade->ID );
-							$grade_label = $grade->post_title;
+							$color       = isset( $grade['color'] ) ? $grade['color'] : '#9b8572';
+							$grade_label = $grade['label'];
+							$grade_url   = ! empty( $grade['url'] ) ? $grade['url'] : '#';
+							$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
 							?>
-							<article class="mk-grade-card" style="--mk-grade-color: <?php echo esc_attr( $color ); ?>;">
-								<div class="mk-grade-card__header">
-									<h3 class="mk-grade-card__title"><?php echo esc_html( $grade_label ); ?></h3>
-								</div>
+							<?php if ( $grade_img ) : ?>
+								<a
+									href="<?php echo esc_url( $grade_url ); ?>"
+									class="mk-grade-card mk-grade-card--composite"
+									aria-label="<?php echo esc_attr( sprintf( /* translators: %s: grade level */ __( 'View lessons for %s', 'markimatics-child' ), $grade_label ) ); ?>"
+								>
+									<img
+										src="<?php echo esc_url( $grade_img ); ?>"
+										alt="<?php echo esc_attr( $grade_label ); ?>"
+										class="mk-grade-card__composite-img"
+										width="320"
+										height="400"
+										loading="lazy"
+									>
+								</a>
+							<?php else : ?>
+								<article class="mk-grade-card" style="--mk-grade-color: <?php echo esc_attr( $color ); ?>;">
+									<div class="mk-grade-card__header">
+										<h3 class="mk-grade-card__title"><?php echo esc_html( $grade_label ); ?></h3>
+									</div>
 
-								<div class="mk-grade-card__body">
-									<?php if ( $grade_img ) : ?>
-										<img
-											src="<?php echo esc_url( $grade_img ); ?>"
-											alt=""
-											class="mk-grade-card__img"
-											width="280"
-											height="160"
-											loading="lazy"
-										>
-									<?php else : ?>
+									<div class="mk-grade-card__body">
 										<div class="mk-grade-card__img mk-grade-card__img--placeholder" aria-hidden="true"></div>
-									<?php endif; ?>
 
-									<?php if ( $grade_topics ) : ?>
-										<p class="mk-grade-card__topics"><?php echo esc_html( $grade_topics ); ?></p>
-									<?php endif; ?>
-
-									<a href="<?php echo esc_url( $grade_url ); ?>" class="mk-grade-card__btn">
-										<?php
-										printf(
-											/* translators: %s: grade level title */
-											esc_html__( 'View %s', 'markimatics-child' ),
-											esc_html( $grade_label )
-										);
-										?>
-										<span aria-hidden="true"> →</span>
-									</a>
-								</div>
-							</article>
+										<a href="<?php echo esc_url( $grade_url ); ?>" class="mk-grade-card__btn">
+											<?php esc_html_e( 'View Lessons', 'markimatics-child' ); ?>
+										</a>
+									</div>
+								</article>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					</div>
 				<?php else : ?>

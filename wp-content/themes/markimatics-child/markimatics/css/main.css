@@ -531,7 +531,7 @@
 .mk-grades__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .mk-grades__empty {
@@ -544,11 +544,14 @@
 }
 
 .mk-grade-card {
-  --mk-grade-color: var(--mk-color-primary);
+  --mk-grade-color: #9b8572;
+  --mk-grade-btn: #c97b22;
+  --mk-grade-cream: #fdf5e6;
   display: flex;
   flex-direction: column;
-  background-color: #fafbfc;
-  border-radius: var(--mk-border-radius-lg);
+  background-color: var(--mk-grade-cream);
+  border: 2px solid #2a2a2a;
+  border-radius: 1.25rem;
   overflow: hidden;
   box-shadow: var(--mk-shadow-sm);
   transition: transform var(--mk-transition), box-shadow var(--mk-transition);
@@ -559,17 +562,35 @@
   box-shadow: var(--mk-shadow-md);
 }
 
+.mk-grade-card--composite {
+  display: block;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.mk-grade-card__composite-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .mk-grade-card__header {
   background-color: var(--mk-grade-color);
-  padding: 0.65rem 1rem;
+  padding: 0.7rem 1rem;
   text-align: center;
+  border-bottom: 2px solid #2a2a2a;
 }
 
 .mk-grade-card__title {
   margin: 0;
-  font-size: var(--mk-font-size-lg);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
   font-weight: var(--mk-font-weight-bold);
   color: var(--mk-color-white);
+  line-height: 1.25;
 }
 
 .mk-grade-card__body {
@@ -577,25 +598,27 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
-  padding: 1.25rem 1rem 1.5rem;
+  padding: 1.25rem 1rem 1.35rem;
   text-align: center;
+  background-color: var(--mk-grade-cream);
 }
 
 .mk-grade-card__img {
   width: 100%;
-  max-width: 200px;
-  height: 140px;
+  max-width: 220px;
+  height: 160px;
   object-fit: contain;
-  margin-bottom: 1rem;
+  margin-bottom: 1.15rem;
 }
 
 .mk-grade-card__img--placeholder {
   background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--mk-grade-color) 18%, white),
-    color-mix(in srgb, var(--mk-grade-color) 8%, white)
+    145deg,
+    color-mix(in srgb, var(--mk-grade-color) 22%, var(--mk-grade-cream)),
+    color-mix(in srgb, var(--mk-grade-color) 8%, var(--mk-grade-cream))
   );
   border-radius: var(--mk-border-radius);
+  min-height: 160px;
 }
 
 .mk-grade-card__topics {
@@ -611,18 +634,18 @@
   align-items: center;
   justify-content: center;
   margin-top: auto;
-  padding: 0.45rem 1.1rem;
+  padding: 0.55rem 1.35rem;
   font-size: var(--mk-font-size-sm);
-  font-weight: var(--mk-font-weight-semibold);
-  color: var(--mk-grade-color);
-  background-color: var(--mk-color-white);
-  border: 1.5px solid var(--mk-grade-color);
-  border-radius: var(--mk-border-radius);
+  font-weight: var(--mk-font-weight-bold);
+  color: var(--mk-grade-btn);
+  background-color: transparent;
+  border: 2.5px solid var(--mk-grade-btn);
+  border-radius: 0.85rem;
   transition: background-color var(--mk-transition), color var(--mk-transition);
 }
 
 .mk-grade-card__btn:hover {
-  background-color: var(--mk-grade-color);
+  background-color: var(--mk-grade-btn);
   color: var(--mk-color-white);
 }
 
