@@ -163,10 +163,10 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 							$color       = isset( $grade['color'] ) ? $grade['color'] : '#9b8572';
 							$grade_label = $grade['label'];
 							$grade_url   = ! empty( $grade['url'] ) ? $grade['url'] : '#';
-							$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
+							//$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
 							?>
-							<?php if ( $grade_img ) : ?>
-								<a
+							<?php //if ( $grade_img ) : ?>
+								<!-- <a
 									href="<?php echo esc_url( $grade_url ); ?>"
 									class="mk-grade-card mk-grade-card--composite"
 									aria-label="<?php echo esc_attr( sprintf( /* translators: %s: grade level */ __( 'View lessons for %s', 'markimatics-child' ), $grade_label ) ); ?>"
@@ -179,8 +179,8 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 										height="400"
 										loading="lazy"
 									>
-								</a>
-							<?php else : ?>
+								</a> -->
+							<?php //else : ?>
 								<article class="mk-grade-card" style="--mk-grade-color: <?php echo esc_attr( $color ); ?>;">
 									<div class="mk-grade-card__header">
 										<h3 class="mk-grade-card__title"><?php echo esc_html( $grade_label ); ?></h3>
@@ -194,7 +194,7 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 										</a>
 									</div>
 								</article>
-							<?php endif; ?>
+							<?php //endif; ?>
 						<?php endforeach; ?>
 					</div>
 				<?php else : ?>
