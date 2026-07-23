@@ -167,11 +167,13 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 							<?php
 							$color       = isset( $grade['color'] ) ? $grade['color'] : '#9b8572';
 							$grade_label = $grade['label'];
+							$grade_slug  = isset( $grade['slug'] ) ? $grade['slug'] : sanitize_title( $grade_label );
 							$grade_url   = ! empty( $grade['url'] ) ? $grade['url'] : '#';
 							$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
+							$card_mod    = sanitize_html_class( $subject_modifier . '-' . $grade_slug );
 							?>
 							<article
-								class="mk-grade-card<?php echo $grade_img ? ' mk-grade-card--has-art' : ''; ?>"
+								class="mk-grade-card mk-grade-card--<?php echo esc_attr( $card_mod ); ?><?php echo $grade_img ? ' mk-grade-card--has-art' : ''; ?>"
 								style="--mk-grade-color: <?php echo esc_attr( $color ); ?>;"
 							>
 								<div class="mk-grade-card__header">

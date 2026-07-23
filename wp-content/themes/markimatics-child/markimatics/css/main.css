@@ -562,6 +562,10 @@
   box-shadow: var(--mk-shadow-md);
 }
 
+.mk-grade-card--science-grade-1 {
+  --mk-grade-cream: #fdedc9;
+}
+
 .mk-grade-card--composite {
   display: block;
   padding: 0;
