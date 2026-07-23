@@ -115,23 +115,36 @@ function markimatics_get_subject_grades( $subject_slug ) {
 }
 
 /**
- * URL for a grade card image, if the asset exists.
+ * URL for a grade card body image, if the asset exists.
  *
- * Looks for: markimatics/images/{Subject} - {Label} - final.png
+ * Prefers: markimatics/images/{subject}-{grade}-card.png
+ * Fallback: markimatics/images/{Subject} - {Label} - final.png
  *
+ * @param string $subject_slug  Subject slug (e.g. science).
+ * @param string $grade_slug    Grade slug (e.g. grade-1).
  * @param string $subject_title Subject title (e.g. Science).
  * @param string $grade_label   Grade label (e.g. Grade 1).
  * @return string|null
  */
-function markimatics_get_grade_card_image( $subject_title, $grade_label ) {
-	$filename = sprintf( '%s - %s - final.png', $subject_title, $grade_label );
-	$path     = get_stylesheet_directory() . '/markimatics/images/' . $filename;
+function markimatics_get_grade_card_image( $subject_slug, $grade_slug, $subject_title = '', $grade_label = '' ) {
+	$dir  = get_stylesheet_directory() . '/markimatics/images/';
+	$base = get_stylesheet_directory_uri() . '/markimatics/images/';
 
-	if ( ! file_exists( $path ) ) {
-		return null;
+	$candidates = array(
+		sprintf( '%s-%s-card.png', sanitize_title( $subject_slug ), sanitize_title( $grade_slug ) ),
+	);
+
+	if ( $subject_title && $grade_label ) {
+		$candidates[] = sprintf( '%s - %s - final.png', $subject_title, $grade_label );
 	}
 
-	return get_stylesheet_directory_uri() . '/markimatics/images/' . rawurlencode( $filename );
+	foreach ( $candidates as $filename ) {
+		if ( file_exists( $dir . $filename ) ) {
+			return $base . rawurlencode( $filename );
+		}
+	}
+
+	return null;
 }
 
 /**
@@ -219,7 +232,7 @@ function markimatics_enqueue_assets() {
 	}
 
 	$base = get_stylesheet_directory_uri() . '/markimatics';
-	$ver  = '1.2.0';
+	$ver  = '1.2.1';
 
 	wp_enqueue_style(
 		'markimatics-variables',

@@ -601,6 +601,17 @@
   padding: 1.25rem 1rem 1.35rem;
   text-align: center;
   background-color: var(--mk-grade-cream);
+  background-image: var(--mk-grade-body-bg, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mk-grade-card__art {
+  width: 100%;
+  flex: 1;
+  min-height: 160px;
+  margin-bottom: 1.15rem;
 }
 
 .mk-grade-card__img {
@@ -619,6 +630,8 @@
   );
   border-radius: var(--mk-border-radius);
   min-height: 160px;
+  width: 100%;
+  margin-bottom: 1.15rem;
 }
 
 .mk-grade-card__topics {
