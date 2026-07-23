@@ -570,6 +570,10 @@
   --mk-grade-cream: #fdeed0;
 }
 
+.mk-grade-card--science-grade-3 {
+  --mk-grade-cream: #fdeed0;
+}
+
 .mk-grade-card--composite {
   display: block;
   padding: 0;
