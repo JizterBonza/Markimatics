@@ -90,6 +90,23 @@ function markimatics_get_subject_grades( $subject_slug ) {
 			array( 'label' => 'HS Earth Science', 'slug' => 'hs-earth-science', 'color' => '#8d6e63' ),
 			array( 'label' => 'HS Physics', 'slug' => 'hs-physics', 'color' => '#5e35b1' ),
 		),
+		'math'    => array(
+			array( 'label' => 'Pre-Kinder', 'slug' => 'pre-kinder', 'color' => '#26c6da' ),
+			array( 'label' => 'Kinder', 'slug' => 'kinder', 'color' => '#7cb342' ),
+			array( 'label' => 'Grade 1', 'slug' => 'grade-1', 'color' => '#f1c40f' ),
+			array( 'label' => 'Grade 2', 'slug' => 'grade-2', 'color' => '#e67e22' ),
+			array( 'label' => 'Grade 3', 'slug' => 'grade-3', 'color' => '#e74c3c' ),
+			array( 'label' => 'Grade 4', 'slug' => 'grade-4', 'color' => '#e91e8c' ),
+			array( 'label' => 'Grade 5', 'slug' => 'grade-5', 'color' => '#9b59b6' ),
+			array( 'label' => 'Grade 6', 'slug' => 'grade-6', 'color' => '#5c6bc0' ),
+			array( 'label' => 'Grade 7', 'slug' => 'grade-7', 'color' => '#42a5f5' ),
+			array( 'label' => 'Grade 8', 'slug' => 'grade-8', 'color' => '#0072ce' ),
+			array( 'label' => 'Algebra I', 'slug' => 'algebra-i', 'color' => '#1565c0' ),
+			array( 'label' => 'Algebra II', 'slug' => 'algebra-ii', 'color' => '#283593' ),
+			array( 'label' => 'Geometry', 'slug' => 'geometry', 'color' => '#00897b' ),
+			array( 'label' => 'Statistics', 'slug' => 'statistics', 'color' => '#6a1b9a' ),
+			array( 'label' => 'Trigonometry', 'slug' => 'trigonometry', 'color' => '#ad1457' ),
+		),
 	);
 
 	$subject_slug = sanitize_title( $subject_slug );
