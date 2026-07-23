@@ -171,9 +171,11 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 							$grade_url   = ! empty( $grade['url'] ) ? $grade['url'] : '#';
 							$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
 							$card_mod    = sanitize_html_class( $subject_modifier . '-' . $grade_slug );
+							// Science grades 1–3 use CSS background assets; always reserve art space.
+							$has_art     = $grade_img || in_array( $card_mod, array( 'science-grade-1', 'science-grade-2', 'science-grade-3' ), true );
 							?>
 							<article
-								class="mk-grade-card mk-grade-card--<?php echo esc_attr( $card_mod ); ?><?php echo $grade_img ? ' mk-grade-card--has-art' : ''; ?>"
+								class="mk-grade-card mk-grade-card--<?php echo esc_attr( $card_mod ); ?><?php echo $has_art ? ' mk-grade-card--has-art' : ''; ?>"
 								style="--mk-grade-color: <?php echo esc_attr( $color ); ?>;"
 							>
 								<div class="mk-grade-card__header">
@@ -186,10 +188,10 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 										style="--mk-grade-body-bg: url('<?php echo esc_url( $grade_img ); ?>');"
 									<?php endif; ?>
 								>
-									<?php if ( ! $grade_img ) : ?>
-										<div class="mk-grade-card__img mk-grade-card__img--placeholder" aria-hidden="true"></div>
-									<?php else : ?>
+									<?php if ( $has_art ) : ?>
 										<div class="mk-grade-card__art" aria-hidden="true"></div>
+									<?php else : ?>
+										<div class="mk-grade-card__img mk-grade-card__img--placeholder" aria-hidden="true"></div>
 									<?php endif; ?>
 
 									<a href="<?php echo esc_url( $grade_url ); ?>" class="mk-grade-card__btn">

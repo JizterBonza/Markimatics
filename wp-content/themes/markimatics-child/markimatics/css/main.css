@@ -564,14 +564,17 @@
 
 .mk-grade-card--science-grade-1 {
   --mk-grade-cream: #fdedc9;
+  --mk-grade-body-bg: url("../images/science-grade-1-card.png");
 }
 
 .mk-grade-card--science-grade-2 {
   --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-grade-2-card.png");
 }
 
 .mk-grade-card--science-grade-3 {
   --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-grade-3-card.png");
 }
 
 .mk-grade-card--composite {
@@ -610,6 +613,7 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
+  min-height: 240px;
   padding: 1.25rem 1rem 1.35rem;
   text-align: center;
   background-color: var(--mk-grade-cream);
@@ -617,6 +621,12 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.mk-grade-card--science-grade-1 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-grade-2 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-grade-3 .mk-grade-card__img--placeholder {
+  background: transparent;
 }
 
 .mk-grade-card__art {
