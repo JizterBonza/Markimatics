@@ -566,6 +566,10 @@
   --mk-grade-cream: #fdedc9;
 }
 
+.mk-grade-card--science-grade-2 {
+  --mk-grade-cream: #fdeed0;
+}
+
 .mk-grade-card--composite {
   display: block;
   padding: 0;
