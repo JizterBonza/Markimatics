@@ -562,6 +562,11 @@
   box-shadow: var(--mk-shadow-md);
 }
 
+.mk-grade-card--science-kinder {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-kinder-card.png");
+}
+
 .mk-grade-card--science-grade-1 {
   --mk-grade-cream: #fdedc9;
   --mk-grade-body-bg: url("../images/science-grade-1-card.png");
@@ -623,6 +628,7 @@
   background-repeat: no-repeat;
 }
 
+.mk-grade-card--science-kinder .mk-grade-card__img--placeholder,
 .mk-grade-card--science-grade-1 .mk-grade-card__img--placeholder,
 .mk-grade-card--science-grade-2 .mk-grade-card__img--placeholder,
 .mk-grade-card--science-grade-3 .mk-grade-card__img--placeholder {

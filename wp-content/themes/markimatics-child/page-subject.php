@@ -172,7 +172,7 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 							$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
 							$card_mod    = sanitize_html_class( $subject_modifier . '-' . $grade_slug );
 							// Science grades 1–3 use CSS background assets; always reserve art space.
-							$has_art     = $grade_img || in_array( $card_mod, array( 'science-grade-1', 'science-grade-2', 'science-grade-3' ), true );
+							$has_art     = $grade_img || in_array( $card_mod, array( 'science-kinder', 'science-grade-1', 'science-grade-2', 'science-grade-3' ), true );
 							?>
 							<article
 								class="mk-grade-card mk-grade-card--<?php echo esc_attr( $card_mod ); ?><?php echo $has_art ? ' mk-grade-card--has-art' : ''; ?>"
