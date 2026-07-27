@@ -582,6 +582,56 @@
   --mk-grade-body-bg: url("../images/science-grade-3-card.png");
 }
 
+.mk-grade-card--science-grade-4 {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-grade-4-card.png");
+}
+
+.mk-grade-card--science-grade-5 {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-grade-5-card.png");
+}
+
+.mk-grade-card--science-grade-6 {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-grade-6-card.png");
+}
+
+.mk-grade-card--science-grade-7 {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-grade-7-card.png");
+}
+
+.mk-grade-card--science-grade-8 {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-grade-8-card.png");
+}
+
+.mk-grade-card--science-hs-astronomy {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-hs-astronomy-card.png");
+}
+
+.mk-grade-card--science-hs-biology {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-hs-biology-card.png");
+}
+
+.mk-grade-card--science-hs-chemistry {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-hs-chemistry-card.png");
+}
+
+.mk-grade-card--science-hs-earth-science {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-hs-earth-science-card.png");
+}
+
+.mk-grade-card--science-hs-physics {
+  --mk-grade-cream: #fdeed0;
+  --mk-grade-body-bg: url("../images/science-hs-physics-card.png");
+}
+
 .mk-grade-card--composite {
   display: block;
   padding: 0;
@@ -631,7 +681,17 @@
 .mk-grade-card--science-kinder .mk-grade-card__img--placeholder,
 .mk-grade-card--science-grade-1 .mk-grade-card__img--placeholder,
 .mk-grade-card--science-grade-2 .mk-grade-card__img--placeholder,
-.mk-grade-card--science-grade-3 .mk-grade-card__img--placeholder {
+.mk-grade-card--science-grade-3 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-grade-4 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-grade-5 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-grade-6 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-grade-7 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-grade-8 .mk-grade-card__img--placeholder,
+.mk-grade-card--science-hs-astronomy .mk-grade-card__img--placeholder,
+.mk-grade-card--science-hs-biology .mk-grade-card__img--placeholder,
+.mk-grade-card--science-hs-chemistry .mk-grade-card__img--placeholder,
+.mk-grade-card--science-hs-earth-science .mk-grade-card__img--placeholder,
+.mk-grade-card--science-hs-physics .mk-grade-card__img--placeholder {
   background: transparent;
 }
 
