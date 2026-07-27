@@ -739,9 +739,11 @@
   font-size: var(--mk-font-size-sm);
   font-weight: var(--mk-font-weight-bold);
   color: var(--mk-grade-btn);
-  background-color: transparent;
+  background-color: var(--mk-grade-cream);
   border: 2.5px solid var(--mk-grade-btn);
   border-radius: 0.85rem;
+  position: relative;
+  z-index: 1;
   transition: background-color var(--mk-transition), color var(--mk-transition);
 }
 
