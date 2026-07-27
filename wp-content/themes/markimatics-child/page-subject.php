@@ -163,7 +163,7 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 
 				<?php if ( ! empty( $grade_cards ) ) : ?>
 					<div class="mk-grades__grid">
-						<?php foreach ( $grade_cards as $grade ) : ?>
+						<?php foreach ( $grade_cards as $index => $grade ) : ?>
 							<?php
 							$color       = isset( $grade['color'] ) ? $grade['color'] : '#9b8572';
 							$grade_label = $grade['label'];
@@ -171,41 +171,27 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 							$grade_url   = ! empty( $grade['url'] ) ? $grade['url'] : '#';
 							$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
 							$card_mod    = sanitize_html_class( $subject_modifier . '-' . $grade_slug );
-							// Science cards with CSS background assets; always reserve art space.
-							$science_art_cards = array(
-								'science-kinder',
-								'science-grade-1',
-								'science-grade-2',
-								'science-grade-3',
-								'science-grade-4',
-								'science-grade-5',
-								'science-grade-6',
-								'science-grade-7',
-								'science-grade-8',
-								'science-hs-astronomy',
-								'science-hs-biology',
-								'science-hs-chemistry',
-								'science-hs-earth-science',
-								'science-hs-physics',
-							);
-							$has_art = $grade_img || in_array( $card_mod, $science_art_cards, true );
+							$lazy_attr   = $index < 4 ? 'eager' : 'lazy';
 							?>
 							<article
-								class="mk-grade-card mk-grade-card--<?php echo esc_attr( $card_mod ); ?><?php echo $has_art ? ' mk-grade-card--has-art' : ''; ?>"
+								class="mk-grade-card mk-grade-card--<?php echo esc_attr( $card_mod ); ?><?php echo $grade_img ? ' mk-grade-card--has-art' : ''; ?>"
 								style="--mk-grade-color: <?php echo esc_attr( $color ); ?>;"
 							>
 								<div class="mk-grade-card__header">
 									<h3 class="mk-grade-card__title"><?php echo esc_html( $grade_label ); ?></h3>
 								</div>
 
-								<div
-									class="mk-grade-card__body"
+								<div class="mk-grade-card__body">
 									<?php if ( $grade_img ) : ?>
-										style="--mk-grade-body-bg: url('<?php echo esc_url( $grade_img ); ?>');"
-									<?php endif; ?>
-								>
-									<?php if ( $has_art ) : ?>
-										<div class="mk-grade-card__art" aria-hidden="true"></div>
+										<img
+											src="<?php echo esc_url( $grade_img ); ?>"
+											alt=""
+											class="mk-grade-card__art-img"
+											width="320"
+											height="400"
+											loading="<?php echo esc_attr( $lazy_attr ); ?>"
+											decoding="async"
+										>
 									<?php else : ?>
 										<div class="mk-grade-card__img mk-grade-card__img--placeholder" aria-hidden="true"></div>
 									<?php endif; ?>
