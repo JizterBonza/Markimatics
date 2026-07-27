@@ -117,9 +117,8 @@ function markimatics_get_subject_grades( $subject_slug ) {
 /**
  * URL for a grade card body image, if the asset exists.
  *
- * Prefers WebP, then PNG:
- * - markimatics/images/{subject}-{grade}-card.webp|.png
- * - markimatics/images/{Subject} - {Label} - final.png
+ * Prefers: markimatics/images/{subject}-{grade}-card.png
+ * Fallback: markimatics/images/{Subject} - {Label} - final.png
  *
  * @param string $subject_slug  Subject slug (e.g. science).
  * @param string $grade_slug    Grade slug (e.g. grade-1).
@@ -130,11 +129,9 @@ function markimatics_get_subject_grades( $subject_slug ) {
 function markimatics_get_grade_card_image( $subject_slug, $grade_slug, $subject_title = '', $grade_label = '' ) {
 	$dir  = get_stylesheet_directory() . '/markimatics/images/';
 	$base = get_stylesheet_directory_uri() . '/markimatics/images/';
-	$stem = sprintf( '%s-%s-card', sanitize_title( $subject_slug ), sanitize_title( $grade_slug ) );
 
 	$candidates = array(
-		$stem . '.webp',
-		$stem . '.png',
+		sprintf( '%s-%s-card.png', sanitize_title( $subject_slug ), sanitize_title( $grade_slug ) ),
 	);
 
 	if ( $subject_title && $grade_label ) {
@@ -235,7 +232,7 @@ function markimatics_enqueue_assets() {
 	}
 
 	$base = get_stylesheet_directory_uri() . '/markimatics';
-	$ver  = '1.3.0';
+	$ver  = '1.2.7';
 
 	wp_enqueue_style(
 		'markimatics-variables',
