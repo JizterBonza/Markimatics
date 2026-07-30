@@ -148,9 +148,10 @@ function markimatics_get_grade_card_image( $subject_slug, $grade_slug, $subject_
 }
 
 /**
- * Permalink for a grade level under a subject page.
+ * Link for a grade level under a subject page.
  *
- * Prefers a published child page matching the grade slug.
+ * Prefers an explicit catalog URL (e.g. a TeachersPayTeachers store category),
+ * then a published child page matching the grade slug.
  *
  * @param int    $subject_id Subject page ID.
  * @param string $grade_slug Grade slug (e.g. grade-1).
@@ -159,6 +160,13 @@ function markimatics_get_grade_card_image( $subject_slug, $grade_slug, $subject_
 function markimatics_get_grade_url( $subject_id, $grade_slug ) {
 	$grade_slug = sanitize_title( $grade_slug );
 	$subject_id = (int) $subject_id;
+
+	$subject_grades = markimatics_get_subject_grades( (string) get_post_field( 'post_name', $subject_id ) );
+	foreach ( $subject_grades as $grade ) {
+		if ( ! empty( $grade['url'] ) && sanitize_title( $grade['slug'] ) === $grade_slug ) {
+			return $grade['url'];
+		}
+	}
 
 	$children = get_pages(
 		array(
