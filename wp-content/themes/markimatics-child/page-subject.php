@@ -91,7 +91,9 @@ if ( empty( $grade_cards ) ) {
 	}
 } else {
 	foreach ( $grade_cards as $index => $grade ) {
-		$grade_cards[ $index ]['url']   = markimatics_get_grade_url( $subject_id, $grade['slug'] );
+		if ( empty( $grade['url'] ) ) {
+			$grade_cards[ $index ]['url'] = markimatics_get_grade_url( $subject_id, $grade['slug'] );
+		}
 		$grade_cards[ $index ]['image'] = markimatics_get_grade_card_image(
 			$subject_slug,
 			$grade['slug'],

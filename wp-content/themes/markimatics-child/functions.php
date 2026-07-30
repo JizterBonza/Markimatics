@@ -70,24 +70,24 @@ function markimatics_get_subject_url( $slug ) {
  * Grade-level card definitions for a subject.
  *
  * @param string $subject_slug Subject page slug.
- * @return array<int, array{label: string, slug: string, color: string}>
+ * @return array<int, array{label: string, slug: string, color: string, url?: string}>
  */
 function markimatics_get_subject_grades( $subject_slug ) {
 	$catalog = array(
 		'science' => array(
-			array( 'label' => 'Kinder', 'slug' => 'kinder', 'color' => '#7cb342' ),
-			array( 'label' => 'Grade 1', 'slug' => 'grade-1', 'color' => '#9b8572' ),
-			array( 'label' => 'Grade 2', 'slug' => 'grade-2', 'color' => '#e67e22' ),
-			array( 'label' => 'Grade 3', 'slug' => 'grade-3', 'color' => '#e74c3c' ),
-			array( 'label' => 'Grade 4', 'slug' => 'grade-4', 'color' => '#e91e8c' ),
-			array( 'label' => 'Grade 5', 'slug' => 'grade-5', 'color' => '#9b59b6' ),
-			array( 'label' => 'Grade 6', 'slug' => 'grade-6', 'color' => '#5c6bc0' ),
-			array( 'label' => 'Grade 7', 'slug' => 'grade-7', 'color' => '#42a5f5' ),
-			array( 'label' => 'Grade 8', 'slug' => 'grade-8', 'color' => '#26a69a' ),
-			array( 'label' => 'HS Astronomy', 'slug' => 'hs-astronomy', 'color' => '#3949ab' ),
-			array( 'label' => 'HS Biology', 'slug' => 'hs-biology', 'color' => '#43a047' ),
-			array( 'label' => 'HS Chemistry', 'slug' => 'hs-chemistry', 'color' => '#fb8c00' ),
-			array( 'label' => 'HS Earth Science', 'slug' => 'hs-earth-science', 'color' => '#8d6e63' ),
+			array( 'label' => 'Kinder', 'slug' => 'kinder', 'color' => '#7cb342', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1496930' ),
+			array( 'label' => 'Grade 1', 'slug' => 'grade-1', 'color' => '#9b8572', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1385095' ),
+			array( 'label' => 'Grade 2', 'slug' => 'grade-2', 'color' => '#e67e22', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1376161' ),
+			array( 'label' => 'Grade 3', 'slug' => 'grade-3', 'color' => '#e74c3c', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1375944' ),
+			array( 'label' => 'Grade 4', 'slug' => 'grade-4', 'color' => '#e91e8c', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1378670' ),
+			array( 'label' => 'Grade 5', 'slug' => 'grade-5', 'color' => '#9b59b6', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1375569' ),
+			array( 'label' => 'Grade 6', 'slug' => 'grade-6', 'color' => '#5c6bc0', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1304684' ),
+			array( 'label' => 'Grade 7', 'slug' => 'grade-7', 'color' => '#42a5f5', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1326376' ),
+			array( 'label' => 'Grade 8', 'slug' => 'grade-8', 'color' => '#26a69a', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1326377' ),
+			array( 'label' => 'HS Astronomy', 'slug' => 'hs-astronomy', 'color' => '#3949ab', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1394982' ),
+			array( 'label' => 'HS Biology', 'slug' => 'hs-biology', 'color' => '#43a047', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1391063' ),
+			array( 'label' => 'HS Chemistry', 'slug' => 'hs-chemistry', 'color' => '#fb8c00', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1391060' ),
+			array( 'label' => 'HS Earth Science', 'slug' => 'hs-earth-science', 'color' => '#8d6e63', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-amp-1287791' ),
 			array( 'label' => 'HS Physics', 'slug' => 'hs-physics', 'color' => '#5e35b1' ),
 		),
 		'math'    => array(
