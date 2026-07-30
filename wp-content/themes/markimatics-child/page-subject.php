@@ -212,9 +212,20 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 										<div class="mk-grade-card__img mk-grade-card__img--placeholder" aria-hidden="true"></div>
 									<?php endif; ?>
 
-									<a href="<?php echo esc_url( $grade_url ); ?>" class="mk-grade-card__btn">
-										<?php esc_html_e( 'View Lessons', 'markimatics-child' ); ?>
-									</a>
+									<?php if ( '#' !== $grade_url ) : ?>
+										<a
+											href="<?php echo esc_url( $grade_url ); ?>"
+											class="mk-grade-card__btn"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<?php esc_html_e( 'View Lessons', 'markimatics-child' ); ?>
+										</a>
+									<?php else : ?>
+										<span class="mk-grade-card__btn" aria-disabled="true">
+											<?php esc_html_e( 'View Lessons', 'markimatics-child' ); ?>
+										</span>
+									<?php endif; ?>
 								</div>
 							</article>
 						<?php endforeach; ?>
