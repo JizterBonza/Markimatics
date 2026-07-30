@@ -222,8 +222,6 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 								>
 									<?php if ( $has_art ) : ?>
 										<div class="mk-grade-card__art" aria-hidden="true"></div>
-									<?php elseif ( 'math' !== $subject_slug ) : ?>
-										<div class="mk-grade-card__img mk-grade-card__img--placeholder" aria-hidden="true"></div>
 									<?php endif; ?>
 
 									<?php if ( '#' !== $grade_url ) : ?>
