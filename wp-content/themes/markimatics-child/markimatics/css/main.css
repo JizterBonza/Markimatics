@@ -649,6 +649,81 @@
   --mk-grade-body-bg: url("../images/science-hs-physics-card.png");
 }
 
+.mk-grade-card--math-pre-kinder {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-pre-kinder-card.png");
+}
+
+.mk-grade-card--math-kinder {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-kinder-card.png");
+}
+
+.mk-grade-card--math-grade-1 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-1-card.png");
+}
+
+.mk-grade-card--math-grade-2 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-2-card.png");
+}
+
+.mk-grade-card--math-grade-3 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-3-card.png");
+}
+
+.mk-grade-card--math-grade-4 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-4-card.png");
+}
+
+.mk-grade-card--math-grade-5 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-5-card.png");
+}
+
+.mk-grade-card--math-grade-6 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-6-card.png");
+}
+
+.mk-grade-card--math-grade-7 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-7-card.png");
+}
+
+.mk-grade-card--math-grade-8 {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-grade-8-card.png");
+}
+
+.mk-grade-card--math-algebra-i {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-algebra-i-card.png");
+}
+
+.mk-grade-card--math-algebra-ii {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-algebra-ii-card.png");
+}
+
+.mk-grade-card--math-geometry {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-geometry-card.png");
+}
+
+.mk-grade-card--math-statistics {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-statistics-card.png");
+}
+
+.mk-grade-card--math-trigonometry {
+  --mk-grade-cream: #e9cdd9;
+  --mk-grade-body-bg: url("../images/math-trigonometry-card.png");
+}
+
 .mk-grade-card--composite {
   display: block;
   padding: 0;

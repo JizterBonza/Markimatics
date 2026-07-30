@@ -172,8 +172,8 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 							$grade_url   = ! empty( $grade['url'] ) ? $grade['url'] : '#';
 							$grade_img   = ! empty( $grade['image'] ) ? $grade['image'] : null;
 							$card_mod    = sanitize_html_class( $subject_modifier . '-' . $grade_slug );
-							// Science cards with CSS background assets; always reserve art space.
-							$science_art_cards = array(
+							// Cards with CSS background assets; always reserve art space.
+							$css_art_cards = array(
 								'science-kinder',
 								'science-grade-1',
 								'science-grade-2',
@@ -188,8 +188,23 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 								'science-hs-chemistry',
 								'science-hs-earth-science',
 								'science-hs-physics',
+								'math-pre-kinder',
+								'math-kinder',
+								'math-grade-1',
+								'math-grade-2',
+								'math-grade-3',
+								'math-grade-4',
+								'math-grade-5',
+								'math-grade-6',
+								'math-grade-7',
+								'math-grade-8',
+								'math-algebra-i',
+								'math-algebra-ii',
+								'math-geometry',
+								'math-statistics',
+								'math-trigonometry',
 							);
-							$has_art = $grade_img || in_array( $card_mod, $science_art_cards, true );
+							$has_art = $grade_img || in_array( $card_mod, $css_art_cards, true );
 							?>
 							<article
 								class="mk-grade-card mk-grade-card--<?php echo esc_attr( $card_mod ); ?><?php echo $has_art ? ' mk-grade-card--has-art' : ''; ?>"
