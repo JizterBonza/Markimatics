@@ -83,21 +83,6 @@ $mk_footer_socials = array(
 				</ul>
 			</nav>
 
-			<div class="mk-footer__newsletter">
-				<h2><?php esc_html_e( 'Subscribe to Our Newsletter', 'markimatics-child' ); ?></h2>
-				<p><?php esc_html_e( 'Get study tips, new releases, resources, and special offers.', 'markimatics-child' ); ?></p>
-				<?php if ( shortcode_exists( 'jetpack_subscription_form' ) ) : ?>
-					<?php
-					echo do_shortcode(
-						'[jetpack_subscription_form show_only_email_and_button="true" show_subscribers_total="false" custom_padding="10" email_field_classes="mk-footer__email" submit_button_classes="mk-footer__subscribe" subscribe_placeholder="' .
-						esc_attr__( 'Enter your email', 'markimatics-child' ) .
-						'" subscribe_button="' .
-						esc_attr__( 'Subscribe', 'markimatics-child' ) .
-						'"]'
-					);
-					?>
-				<?php endif; ?>
-			</div>
 		</div>
 
 		<p class="mk-footer__copyright">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All rights reserved.', 'markimatics-child' ); ?></p>

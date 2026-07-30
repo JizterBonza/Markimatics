@@ -240,7 +240,7 @@ function markimatics_enqueue_assets() {
 	}
 
 	$base = get_stylesheet_directory_uri() . '/markimatics';
-	$ver  = '1.2.9';
+	$ver  = '1.2.10';
 
 	wp_enqueue_style(
 		'markimatics-variables',
