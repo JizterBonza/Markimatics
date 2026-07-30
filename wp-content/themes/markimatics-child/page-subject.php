@@ -251,11 +251,7 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 		</section>
 	</main>
 
-	<footer class="mk-footer" id="contact">
-		<div class="mk-container">
-			<p>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php esc_html_e( 'All rights reserved.', 'markimatics-child' ); ?></p>
-		</div>
-	</footer>
+	<?php get_template_part( 'markimatics-footer', null, array( 'home_url' => $mk_home ) ); ?>
 
 	<?php wp_footer(); ?>
 </body>
