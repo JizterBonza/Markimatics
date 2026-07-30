@@ -42,12 +42,11 @@ if ( $subject_post instanceof WP_Post ) {
 		: wp_trim_words( wp_strip_all_tags( $subject_post->post_content ), 40 );
 }
 
-// Science uses a full-bleed CSS banner; other subjects may show a side illustration.
+// Science and Math use full-bleed CSS banners; other subjects may show a side illustration.
 $hero_image = null;
-if ( 'science' !== $subject_slug ) {
+if ( ! in_array( $subject_slug, array( 'science', 'math' ), true ) ) {
 	$hero_fallbacks = array(
 		'ela'   => $mk_assets . '/images/ELA_bg.png',
-		'math'  => $mk_assets . '/images/Math_bg.png',
 		'nclex' => $mk_assets . '/images/NCLEX_bg.png',
 	);
 

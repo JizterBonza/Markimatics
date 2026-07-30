@@ -409,7 +409,24 @@
 }
 
 .mk-subject-hero--math {
-  background: radial-gradient(ellipse at 25% 40%, #1a5a9a 0%, #0a2a4a 65%);
+  background-color: #073c72;
+  background-image: url("../images/subject-math-banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mk-subject-hero--math .mk-subject-hero__stars,
+.mk-subject-hero--math .mk-subject-hero__media {
+  display: none;
+}
+
+.mk-subject-hero--math .mk-subject-hero__inner {
+  grid-template-columns: 1fr;
+}
+
+.mk-subject-hero--math .mk-subject-hero__text {
+  max-width: min(36rem, 48%);
 }
 
 .mk-subject-hero--nclex {
@@ -773,7 +790,8 @@
     padding-block: 2rem 2.5rem;
   }
 
-  .mk-subject-hero--science .mk-subject-hero__text {
+  .mk-subject-hero--science .mk-subject-hero__text,
+  .mk-subject-hero--math .mk-subject-hero__text {
     max-width: 100%;
   }
 
