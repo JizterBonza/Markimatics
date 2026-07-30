@@ -40,7 +40,7 @@ $mk_footer_socials = array(
 				</a>
 				<p><?php esc_html_e( 'High-yield study resources for students and future nurses.', 'markimatics-child' ); ?></p>
 
-				<div class="mk-footer__socials">
+				<!-- <div class="mk-footer__socials">
 					<?php foreach ( $mk_footer_socials as $network => $social ) : ?>
 						<a href="<?php echo esc_url( $social['url'] ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( $social['label'] ); ?>">
 							<?php if ( 'facebook' === $network ) : ?>
@@ -52,7 +52,7 @@ $mk_footer_socials = array(
 							<?php endif; ?>
 						</a>
 					<?php endforeach; ?>
-				</div>
+				</div> -->
 			</div>
 
 			<nav class="mk-footer__nav" aria-label="<?php esc_attr_e( 'Course links', 'markimatics-child' ); ?>">
@@ -69,17 +69,17 @@ $mk_footer_socials = array(
 				<ul>
 					<li><a href="<?php echo esc_url( $mk_footer_home . '#about' ); ?>"><?php esc_html_e( 'About', 'markimatics-child' ); ?></a></li>
 					<li><a href="<?php echo esc_url( $mk_footer_home . '#contact' ); ?>"><?php esc_html_e( 'Contact', 'markimatics-child' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>"><?php esc_html_e( 'Blog', 'markimatics-child' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/help-center/' ) ); ?>"><?php esc_html_e( 'Help Center', 'markimatics-child' ); ?></a></li>
+					<li>Blog</li>
+					<li>Help Center</li>
 				</ul>
 			</nav>
 
 			<nav class="mk-footer__nav" aria-label="<?php esc_attr_e( 'Legal links', 'markimatics-child' ); ?>">
 				<h2><?php esc_html_e( 'Legal', 'markimatics-child' ); ?></h2>
 				<ul>
-					<li><a href="<?php echo esc_url( home_url( '/terms-of-use/' ) ); ?>"><?php esc_html_e( 'Terms of Use', 'markimatics-child' ); ?></a></li>
-					<li><a href="<?php echo esc_url( get_privacy_policy_url() ?: home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy Policy', 'markimatics-child' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/refund-policy/' ) ); ?>"><?php esc_html_e( 'Refund Policy', 'markimatics-child' ); ?></a></li>
+					<li>Terms of Use</li>
+					<li>Privacy Policy</li>
+					<li>Refund Policy</li>
 				</ul>
 			</nav>
 
