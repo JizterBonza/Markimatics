@@ -71,6 +71,7 @@ $mk_subject_urls = array(
 			<div class="mk-container">
 				<div class="mk-courses__grid">
 
+					<?php /* Hidden for now — restore when ready
 					<article class="mk-course-card mk-course-card--ela">
 						<div class="mk-course-card__content">
 							<h2 class="mk-course-card__title"><?php esc_html_e( 'ELA', 'markimatics-child' ); ?></h2>
@@ -78,6 +79,7 @@ $mk_subject_urls = array(
 							<a href="<?php echo esc_url( $mk_subject_urls['ela'] ); ?>" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
 						</div>
 					</article>
+					*/ ?>
 
 					<article class="mk-course-card mk-course-card--science">
 						<div class="mk-course-card__content">
@@ -95,6 +97,7 @@ $mk_subject_urls = array(
 						</div>
 					</article>
 
+					<?php /* Hidden for now — restore when ready
 					<article class="mk-course-card mk-course-card--nclex">
 						<div class="mk-course-card__content">
 							<h2 class="mk-course-card__title"><?php esc_html_e( 'NCLEX', 'markimatics-child' ); ?></h2>
@@ -102,6 +105,7 @@ $mk_subject_urls = array(
 							<a href="<?php echo esc_url( $mk_subject_urls['nclex'] ); ?>" class="mk-btn mk-btn--primary mk-btn--sm"><?php esc_html_e( 'Learn More', 'markimatics-child' ); ?></a>
 						</div>
 					</article>
+					*/ ?>
 
 				</div>
 			</div>
