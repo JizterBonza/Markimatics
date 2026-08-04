@@ -10,10 +10,10 @@ defined( 'ABSPATH' ) || exit;
 $mk_footer_home = isset( $args['home_url'] ) ? $args['home_url'] : home_url( '/' );
 $mk_footer_assets = get_stylesheet_directory_uri() . '/markimatics';
 $mk_footer_courses = array(
-	'ELA'     => markimatics_get_subject_url( 'ela' ),
+	// 'ELA'  => markimatics_get_subject_url( 'ela' ), // Hidden for now
 	'Science' => markimatics_get_subject_url( 'science' ),
 	'Math'    => markimatics_get_subject_url( 'math' ),
-	'NCLEX'   => markimatics_get_subject_url( 'nclex' ),
+	// 'NCLEX' => markimatics_get_subject_url( 'nclex' ), // Hidden for now
 );
 $mk_footer_socials = array(
 	'facebook'  => array(
