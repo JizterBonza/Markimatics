@@ -161,7 +161,7 @@ if ( empty( $lesson_cards ) ) {
 						width="40"
 						height="40"
 					>
-					<h2 class="mk-lessons__title"><?php esc_html_e( 'Select a Lesson', 'markimatics-child' ); ?></h2>
+					<h2 class="mk-lessons__title" style="margin-bottom: 0px;"><?php esc_html_e( 'Select a Lesson', 'markimatics-child' ); ?></h2>
 				</header>
 
 				<?php if ( ! empty( $lesson_cards ) ) : ?>
