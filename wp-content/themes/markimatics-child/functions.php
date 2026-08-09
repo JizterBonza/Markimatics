@@ -151,7 +151,7 @@ function markimatics_get_grade_lessons( $subject_slug, $grade_slug ) {
 					'count'        => '24 Task Cards',
 					'action'       => 'Print, Cut, Laminate',
 					'image'        => $images . rawurlencode( 'Task Card TEKS K-6 Sorting and Describing Objects.png' ),
-					'url'          => '',
+					'url'          => 'https://www.teacherspayteachers.com/Product/Task-Card-TEKS-K6-Sorting-and-Describing-Objects-14967136',
 					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
 				),
 			),
