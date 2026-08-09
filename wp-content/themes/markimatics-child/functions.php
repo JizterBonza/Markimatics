@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  * @return string[]
  */
 function markimatics_page_templates() {
-	return array( 'page-markimatics.php', 'page-subject.php' );
+	return array( 'page-markimatics.php', 'page-subject.php', 'page-grade.php' );
 }
 
 /**
@@ -69,49 +69,138 @@ function markimatics_get_subject_url( $slug ) {
 /**
  * Grade-level card definitions for a subject.
  *
+ * Optional store_url keeps the TeachersPayTeachers category for later use.
+ * "View Lessons" uses markimatics_get_grade_url() (grade page), not store_url.
+ *
  * @param string $subject_slug Subject page slug.
- * @return array<int, array{label: string, slug: string, color: string, url?: string}>
+ * @return array<int, array{label: string, slug: string, color: string, store_url?: string}>
  */
 function markimatics_get_subject_grades( $subject_slug ) {
 	$catalog = array(
 		'science' => array(
-			array( 'label' => 'Kinder', 'slug' => 'kinder', 'color' => '#7cb342', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1496930' ),
-			array( 'label' => 'Grade 1', 'slug' => 'grade-1', 'color' => '#9b8572', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1385095' ),
-			array( 'label' => 'Grade 2', 'slug' => 'grade-2', 'color' => '#e67e22', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1376161' ),
-			array( 'label' => 'Grade 3', 'slug' => 'grade-3', 'color' => '#e74c3c', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1375944' ),
-			array( 'label' => 'Grade 4', 'slug' => 'grade-4', 'color' => '#e91e8c', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1378670' ),
-			array( 'label' => 'Grade 5', 'slug' => 'grade-5', 'color' => '#9b59b6', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1375569' ),
-			array( 'label' => 'Grade 6', 'slug' => 'grade-6', 'color' => '#5c6bc0', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1304684' ),
-			array( 'label' => 'Grade 7', 'slug' => 'grade-7', 'color' => '#42a5f5', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1326376' ),
-			array( 'label' => 'Grade 8', 'slug' => 'grade-8', 'color' => '#26a69a', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1326377' ),
-			array( 'label' => 'HS Astronomy', 'slug' => 'hs-astronomy', 'color' => '#3949ab', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1394982' ),
-			array( 'label' => 'HS Biology', 'slug' => 'hs-biology', 'color' => '#43a047', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1391063' ),
-			array( 'label' => 'HS Chemistry', 'slug' => 'hs-chemistry', 'color' => '#fb8c00', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1391060' ),
-			array( 'label' => 'HS Earth Science', 'slug' => 'hs-earth-science', 'color' => '#8d6e63', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-amp-1287791' ),
+			array( 'label' => 'Kinder', 'slug' => 'kinder', 'color' => '#7cb342', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1496930' ),
+			array( 'label' => 'Grade 1', 'slug' => 'grade-1', 'color' => '#9b8572', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1385095' ),
+			array( 'label' => 'Grade 2', 'slug' => 'grade-2', 'color' => '#e67e22', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1376161' ),
+			array( 'label' => 'Grade 3', 'slug' => 'grade-3', 'color' => '#e74c3c', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1375944' ),
+			array( 'label' => 'Grade 4', 'slug' => 'grade-4', 'color' => '#e91e8c', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1378670' ),
+			array( 'label' => 'Grade 5', 'slug' => 'grade-5', 'color' => '#9b59b6', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1375569' ),
+			array( 'label' => 'Grade 6', 'slug' => 'grade-6', 'color' => '#5c6bc0', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1304684' ),
+			array( 'label' => 'Grade 7', 'slug' => 'grade-7', 'color' => '#42a5f5', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1326376' ),
+			array( 'label' => 'Grade 8', 'slug' => 'grade-8', 'color' => '#26a69a', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1326377' ),
+			array( 'label' => 'HS Astronomy', 'slug' => 'hs-astronomy', 'color' => '#3949ab', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1394982' ),
+			array( 'label' => 'HS Biology', 'slug' => 'hs-biology', 'color' => '#43a047', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1391063' ),
+			array( 'label' => 'HS Chemistry', 'slug' => 'hs-chemistry', 'color' => '#fb8c00', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1391060' ),
+			array( 'label' => 'HS Earth Science', 'slug' => 'hs-earth-science', 'color' => '#8d6e63', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-amp-1287791' ),
 			array( 'label' => 'HS Physics', 'slug' => 'hs-physics', 'color' => '#5e35b1' ),
 		),
 		'math'    => array(
 			array( 'label' => 'Pre-Kinder', 'slug' => 'pre-kinder', 'color' => '#26c6da' ),
-			array( 'label' => 'Kinder', 'slug' => 'kinder', 'color' => '#7cb342', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1534845' ),
-			array( 'label' => 'Grade 1', 'slug' => 'grade-1', 'color' => '#f1c40f', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1517573' ),
-			array( 'label' => 'Grade 2', 'slug' => 'grade-2', 'color' => '#e67e22', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1434612' ),
-			array( 'label' => 'Grade 3', 'slug' => 'grade-3', 'color' => '#e74c3c', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1564823' ),
-			array( 'label' => 'Grade 4', 'slug' => 'grade-4', 'color' => '#e91e8c', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1557684' ),
-			array( 'label' => 'Grade 5', 'slug' => 'grade-5', 'color' => '#9b59b6', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1434644' ),
-			array( 'label' => 'Grade 6', 'slug' => 'grade-6', 'color' => '#5c6bc0', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386221' ),
-			array( 'label' => 'Grade 7', 'slug' => 'grade-7', 'color' => '#42a5f5', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386220' ),
-			array( 'label' => 'Grade 8', 'slug' => 'grade-8', 'color' => '#0072ce', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1386222' ),
-			array( 'label' => 'Algebra I', 'slug' => 'algebra-i', 'color' => '#1565c0', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386225' ),
-			array( 'label' => 'Algebra II', 'slug' => 'algebra-ii', 'color' => '#283593', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1430134' ),
-			array( 'label' => 'Geometry', 'slug' => 'geometry', 'color' => '#00897b', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386224' ),
-			array( 'label' => 'Statistics', 'slug' => 'statistics', 'color' => '#6a1b9a', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1445485' ),
-			array( 'label' => 'Trigonometry', 'slug' => 'trigonometry', 'color' => '#ad1457', 'url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1445484' ),
+			array( 'label' => 'Kinder', 'slug' => 'kinder', 'color' => '#7cb342', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1534845' ),
+			array( 'label' => 'Grade 1', 'slug' => 'grade-1', 'color' => '#f1c40f', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1517573' ),
+			array( 'label' => 'Grade 2', 'slug' => 'grade-2', 'color' => '#e67e22', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1434612' ),
+			array( 'label' => 'Grade 3', 'slug' => 'grade-3', 'color' => '#e74c3c', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1564823' ),
+			array( 'label' => 'Grade 4', 'slug' => 'grade-4', 'color' => '#e91e8c', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1557684' ),
+			array( 'label' => 'Grade 5', 'slug' => 'grade-5', 'color' => '#9b59b6', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1434644' ),
+			array( 'label' => 'Grade 6', 'slug' => 'grade-6', 'color' => '#5c6bc0', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386221' ),
+			array( 'label' => 'Grade 7', 'slug' => 'grade-7', 'color' => '#42a5f5', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386220' ),
+			array( 'label' => 'Grade 8', 'slug' => 'grade-8', 'color' => '#0072ce', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1386222' ),
+			array( 'label' => 'Algebra I', 'slug' => 'algebra-i', 'color' => '#1565c0', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386225' ),
+			array( 'label' => 'Algebra II', 'slug' => 'algebra-ii', 'color' => '#283593', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1430134' ),
+			array( 'label' => 'Geometry', 'slug' => 'geometry', 'color' => '#00897b', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1386224' ),
+			array( 'label' => 'Statistics', 'slug' => 'statistics', 'color' => '#6a1b9a', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-1445485' ),
+			array( 'label' => 'Trigonometry', 'slug' => 'trigonometry', 'color' => '#ad1457', 'store_url' => 'https://www.teacherspayteachers.com/store/markimatics/category-__________________________-1445484' ),
 		),
 	);
 
 	$subject_slug = sanitize_title( $subject_slug );
 
 	return isset( $catalog[ $subject_slug ] ) ? $catalog[ $subject_slug ] : array();
+}
+
+/**
+ * Lesson (task card) definitions for a subject + grade.
+ *
+ * Add lessons here as images and product links become available.
+ *
+ * Keys per lesson:
+ * - title        Full lesson title (shown on composed card / image alt)
+ * - label        Blue bar text under the card
+ * - slug         Unique lesson slug (used for image filename lookup)
+ * - url          Product / lesson link (optional until provided)
+ * - image        Full cover image URL (optional; falls back to asset lookup)
+ * - badge        Corner ribbon text (default: TASK CARD)
+ * - count        e.g. "24 Task Cards"
+ * - action       e.g. "Print, Cut, Laminate"
+ * - difficulties Array of: easy, moderate, challenging, hard
+ *
+ * @param string $subject_slug Subject slug (e.g. science).
+ * @param string $grade_slug   Grade slug (e.g. grade-5).
+ * @return array<int, array<string, mixed>>
+ */
+function markimatics_get_grade_lessons( $subject_slug, $grade_slug ) {
+	$catalog = array(
+		'science' => array(
+			// Example layout card — replace image/url (and add more lessons) later.
+			'grade-5' => array(
+				array(
+					'title'        => 'Heat Changes: Reversible & Irreversible Transformations',
+					'label'        => 'Heat Changes',
+					'slug'         => 'heat-changes',
+					'badge'        => 'TASK CARD',
+					'count'        => '24 Task Cards',
+					'action'       => 'Print, Cut, Laminate',
+					// Prefer a green task-card cover only (no blue footer); template adds the label bar.
+					// Example: 'image' => get_stylesheet_directory_uri() . '/markimatics/images/lesson-sample-task-card.png',
+					// Or drop a file named: science-grade-5-heat-changes-card.png
+					'image'        => '',
+					'url'          => '',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+			),
+		),
+		'math'    => array(),
+	);
+
+	$subject_slug = sanitize_title( $subject_slug );
+	$grade_slug   = sanitize_title( $grade_slug );
+
+	if ( empty( $catalog[ $subject_slug ][ $grade_slug ] ) ) {
+		return array();
+	}
+
+	return $catalog[ $subject_slug ][ $grade_slug ];
+}
+
+/**
+ * URL for a lesson cover image, if the asset exists.
+ *
+ * Prefers: markimatics/images/{subject}-{grade}-{lesson}-card.png
+ *
+ * @param string $subject_slug Subject slug.
+ * @param string $grade_slug   Grade slug.
+ * @param string $lesson_slug  Lesson slug.
+ * @return string|null
+ */
+function markimatics_get_lesson_card_image( $subject_slug, $grade_slug, $lesson_slug ) {
+	if ( ! $lesson_slug ) {
+		return null;
+	}
+
+	$dir  = get_stylesheet_directory() . '/markimatics/images/';
+	$base = get_stylesheet_directory_uri() . '/markimatics/images/';
+
+	$filename = sprintf(
+		'%s-%s-%s-card.png',
+		sanitize_title( $subject_slug ),
+		sanitize_title( $grade_slug ),
+		sanitize_title( $lesson_slug )
+	);
+
+	if ( file_exists( $dir . $filename ) ) {
+		return $base . rawurlencode( $filename );
+	}
+
+	return null;
 }
 
 /**
@@ -148,10 +237,10 @@ function markimatics_get_grade_card_image( $subject_slug, $grade_slug, $subject_
 }
 
 /**
- * Link for a grade level under a subject page.
+ * Link for a grade level under a subject page (lessons hub).
  *
- * Prefers an explicit catalog URL (e.g. a TeachersPayTeachers store category),
- * then a published child page matching the grade slug.
+ * Prefers a published child page using the Markimatics Grade template,
+ * then any child / path match for the grade slug.
  *
  * @param int    $subject_id Subject page ID.
  * @param string $grade_slug Grade slug (e.g. grade-1).
@@ -161,13 +250,6 @@ function markimatics_get_grade_url( $subject_id, $grade_slug ) {
 	$grade_slug = sanitize_title( $grade_slug );
 	$subject_id = (int) $subject_id;
 
-	$subject_grades = markimatics_get_subject_grades( (string) get_post_field( 'post_name', $subject_id ) );
-	foreach ( $subject_grades as $grade ) {
-		if ( ! empty( $grade['url'] ) && sanitize_title( $grade['slug'] ) === $grade_slug ) {
-			return $grade['url'];
-		}
-	}
-
 	$children = get_pages(
 		array(
 			'parent'      => $subject_id,
@@ -176,7 +258,12 @@ function markimatics_get_grade_url( $subject_id, $grade_slug ) {
 	);
 
 	foreach ( $children as $child ) {
-		if ( $child->post_name === $grade_slug ) {
+		if ( $child->post_name !== $grade_slug ) {
+			continue;
+		}
+
+		$template = get_page_template_slug( $child->ID );
+		if ( 'page-grade.php' === $template || '' === $template ) {
 			return get_permalink( $child );
 		}
 	}
@@ -186,6 +273,13 @@ function markimatics_get_grade_url( $subject_id, $grade_slug ) {
 		$page = get_page_by_path( trailingslashit( $subject_path ) . $grade_slug );
 		if ( $page instanceof WP_Post ) {
 			return get_permalink( $page );
+		}
+	}
+
+	foreach ( $children as $child ) {
+		$child_grade = get_post_meta( $child->ID, 'mk_grade_slug', true );
+		if ( $child_grade && sanitize_title( $child_grade ) === $grade_slug ) {
+			return get_permalink( $child );
 		}
 	}
 
@@ -240,7 +334,7 @@ function markimatics_enqueue_assets() {
 	}
 
 	$base = get_stylesheet_directory_uri() . '/markimatics';
-	$ver  = '1.2.10';
+	$ver  = '1.3.0';
 
 	wp_enqueue_style(
 		'markimatics-variables',

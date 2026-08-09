@@ -2,12 +2,13 @@
 /**
  * Template Name: Markimatics Subject
  *
- * Subject hub page: hero + grade-level cards (child pages).
+ * Subject hub page: hero + grade-level cards.
  *
  * Optional custom fields on the subject page:
  * - mk_subtitle  — e.g. "Kinder thru Grade 8"
  *
- * Child pages become grade cards (title, excerpt, featured image, permalink).
+ * "View Lessons" links to child pages that use the Markimatics Grade template
+ * (slug should match the grade slug, e.g. grade-5).
  *
  * @package Markimatics_Child
  */
@@ -228,8 +229,6 @@ $subject_modifier = sanitize_html_class( $subject_slug );
 										<a
 											href="<?php echo esc_url( $grade_url ); ?>"
 											class="mk-grade-card__btn"
-											target="_blank"
-											rel="noopener noreferrer"
 										>
 											<?php esc_html_e( 'View Lessons', 'markimatics-child' ); ?>
 										</a>
