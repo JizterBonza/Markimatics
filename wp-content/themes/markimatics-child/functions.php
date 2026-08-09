@@ -427,7 +427,7 @@ function markimatics_get_grade_lessons( $subject_slug, $grade_slug ) {
 					'badge'        => 'TASK CARD',
 					'count'        => '24 Task Cards',
 					'action'       => 'Print, Cut, Laminate',
-					'image'        => $images . rawurlencode( 'Task Card TEKS 1-10A Exploring Soil - Its Color, Texture, and Tiny Parts.png' ),
+					'image'        => $images . rawurlencode( 'Task Card TEKS 1-10A Exploring Soil — Its Color, Texture, and Tiny Parts.png' ),
 					'url'          => '',
 					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
 				),
