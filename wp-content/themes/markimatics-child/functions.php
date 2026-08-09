@@ -138,21 +138,19 @@ function markimatics_get_subject_grades( $subject_slug ) {
  * @return array<int, array<string, mixed>>
  */
 function markimatics_get_grade_lessons( $subject_slug, $grade_slug ) {
+	$images = get_stylesheet_directory_uri() . '/markimatics/images/';
+
 	$catalog = array(
 		'science' => array(
-			// Example layout card — replace image/url (and add more lessons) later.
-			'grade-5' => array(
+			'kinder' => array(
 				array(
-					'title'        => 'Heat Changes: Reversible & Irreversible Transformations',
-					'label'        => 'Heat Changes',
-					'slug'         => 'heat-changes',
+					'title'        => 'Sorting & Describing Objects',
+					'label'        => 'Task Card TEKS K-6 Sorting and Describing Objects',
+					'slug'         => 'sorting-and-describing-objects',
 					'badge'        => 'TASK CARD',
 					'count'        => '24 Task Cards',
 					'action'       => 'Print, Cut, Laminate',
-					// Prefer a green task-card cover only (no blue footer); template adds the label bar.
-					// Example: 'image' => get_stylesheet_directory_uri() . '/markimatics/images/lesson-sample-task-card.png',
-					// Or drop a file named: science-grade-5-heat-changes-card.png
-					'image'        => '',
+					'image'        => $images . rawurlencode( 'Task Card TEKS K-6 Sorting and Describing Objects.png' ),
 					'url'          => '',
 					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
 				),
