@@ -1039,7 +1039,6 @@
   border: 3px solid #1f4d3a;
   background-color: #3f8f4a;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
   box-shadow: var(--mk-shadow-sm);
 }
 
