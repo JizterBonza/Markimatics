@@ -156,7 +156,7 @@
 /* ---- Hero ---- */
 .mk-hero {
   position: relative;
-  min-height: 480px;
+  min-height: 280px;
   display: flex;
   align-items: center;
   background-color: var(--mk-color-primary-dark);
@@ -177,7 +177,7 @@
   position: relative;
   z-index: 1;
   max-width: 600px;
-  padding-block: 4rem;
+  padding-block: 2rem;
 }
 
 .mk-hero__title {
@@ -193,7 +193,7 @@
 }
 
 .mk-hero__subtitle {
-  margin: 0 0 2rem;
+  margin: 0 0 1.25rem;
   font-size: var(--mk-font-size-lg);
   color: var(--mk-color-white);
   opacity: 0.95;
@@ -242,8 +242,8 @@
 .mk-courses__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  max-width: 720px;
+  gap: 2.5rem;
+  max-width: 860px;
   margin-inline: auto;
 }
 
@@ -254,7 +254,7 @@
  */
 .mk-course-card {
   position: relative;
-  min-height: 200px;
+  min-height: 250px;
   border-radius: var(--mk-border-radius-lg);
   overflow: hidden;
   background-color: var(--mk-color-white);
@@ -270,7 +270,7 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  min-height: 200px;
+  min-height: 250px;
   padding: 0 1.25rem 1.25rem;
 }
 
@@ -1365,11 +1365,11 @@
   }
 
   .mk-hero {
-    min-height: 400px;
+    min-height: 220px;
   }
 
   .mk-hero__content {
-    padding-block: 3rem;
+    padding-block: 1.5rem;
   }
 }
 
