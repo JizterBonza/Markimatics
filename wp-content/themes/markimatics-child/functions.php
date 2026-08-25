@@ -2343,6 +2343,200 @@ function markimatics_get_grade_lessons( $subject_slug, $grade_slug ) {
 }
 
 /**
+ * Exit ticket definitions for a subject + grade.
+ *
+ * Keys match markimatics_get_grade_lessons().
+ *
+ * @param string $subject_slug Subject slug (e.g. science).
+ * @param string $grade_slug   Grade slug (e.g. kinder).
+ * @return array<int, array<string, mixed>>
+ */
+function markimatics_get_grade_exit_tickets( $subject_slug, $grade_slug ) {
+	$images = get_stylesheet_directory_uri() . '/markimatics/images/';
+
+	$catalog = array(
+		'science' => array(
+			'kinder' => array(
+				array(
+					'title'        => 'Magnetic Forces: Push, Pull, and Interactions',
+					'label'        => 'Exit Ticket: TEKS K-7: Magnetic Forces: Push, Pull, and Interactions',
+					'slug'         => 'exit-ticket-magnetic-forces-push-pull-and-interactions',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-7 Magnetic Forces Push, Pull, and Interactions.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K-7-Magnetic-Forces-Push-Pull-and-Interactions-15616494',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Light Makes Things Visible',
+					'label'        => 'Exit Ticket: TEKS K-8A: Light Makes Things Visible',
+					'slug'         => 'exit-ticket-light-makes-things-visible',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-8A Light Makes Things Visible.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K8A-Light-Makes-Things-Visible-15616500',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Light Makes Shadows',
+					'label'        => 'Exit Ticket: TEKS K-8B - Light Makes Shadows',
+					'slug'         => 'exit-ticket-light-makes-shadows',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-8B - Light Makes Shadows.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K8B-Light-Makes-Shadows-15616508',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Learning About Day and Night',
+					'label'        => 'Exit Ticket: TEKS K-9A - Learning About Day and Night',
+					'slug'         => 'exit-ticket-learning-about-day-and-night',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-9A - Learning About Day and Night.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K9A-Learning-About-Day-and-Night-15616518',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Sun, Moon, and Stars',
+					'label'        => 'Exit Ticket: TEKS K-9B - Sun, Moon, and Stars',
+					'slug'         => 'exit-ticket-sun-moon-and-stars',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-9B - Sun, Moon, and Stars.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K9B-Sun-Moon-and-Stars-15616532',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Sorting Rocks by What We See',
+					'label'        => 'Exit Ticket: TEKS K-10A - Sorting Rocks by What We See',
+					'slug'         => 'exit-ticket-sorting-rocks-by-what-we-see',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-10A - Sorting Rocks by What We See.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K10A-Sorting-Rocks-by-What-We-See-15616563',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Watching Weather Change Every Day & Season',
+					'label'        => 'Exit Ticket: TEKS K-10B - Watching Weather Change Every Day & Season',
+					'slug'         => 'exit-ticket-watching-weather-change-every-day-season',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-10B - Watching Weather Change Every Day & Season.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-K10B-Watching-Weather-Change-Every-Day-Season-15616538',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'How Air Moves',
+					'label'        => 'Exit Ticket: TEKS K-10C - How Air Moves',
+					'slug'         => 'exit-ticket-how-air-moves',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-10C - How Air Moves.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K10C-How-Air-Moves-15621449',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Earth Materials Around Us',
+					'label'        => 'Exit Ticket: TEKS K-11 - Earth Materials Around Us',
+					'slug'         => 'exit-ticket-earth-materials-around-us',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-11 - Earth Materials Around Us.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K11-Earth-Materials-Around-Us-15621488',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Plants Need Sun, Air, and Water',
+					'label'        => 'Exit Ticket: TEKS K-12A - Plants Need Sun, Air, and Water',
+					'slug'         => 'exit-ticket-plants-need-sun-air-and-water',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-12A - Plants Need Sun, Air, and Water.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K12A-Plants-Need-Sun-Air-and-Water-15621747',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Animals’ Basic Needs for Survival',
+					'label'        => 'Exit Ticket: TEKS K-12B - Animals’ Basic Needs for Survival',
+					'slug'         => 'exit-ticket-animals-basic-needs-for-survival',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( "Exit Ticket TEKS K-12B - Animals\u{2019} Basic Needs for Survival.png" ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K12B-Animals-Basic-Needs-for-Survival-15621883',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Parts of Plants',
+					'label'        => 'Exit Ticket: TEKS K-13A - Parts of Plants',
+					'slug'         => 'exit-ticket-parts-of-plants',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-13A - Parts of Plants.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K13A-Parts-of-Plants-15621909',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Animal Body Parts and Senses',
+					'label'        => 'Exit Ticket: TEKS K-13B - Animal Body Parts and Senses',
+					'slug'         => 'exit-ticket-animal-body-parts-and-senses',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-13B - Animal Body Parts and Senses.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K13B-Animal-Body-Parts-and-Senses-15626555',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'Plant Life Cycle Changes',
+					'label'        => 'Exit Ticket: TEKS K-13C - Plant Life Cycle Changes',
+					'slug'         => 'exit-ticket-plant-life-cycle-changes',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-13C - Plant Life Cycle Changes.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K13C-Plant-Life-Cycle-Changes-15621932',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+				array(
+					'title'        => 'How Young Plants Resemble Parent Plants',
+					'label'        => 'Exit Ticket: TEKS K-13D - How Young Plants Resemble Parent Plants',
+					'slug'         => 'exit-ticket-how-young-plants-resemble-parent-plants',
+					'badge'        => 'EXIT TICKET',
+					'count'        => 'Exit Ticket',
+					'action'       => 'Print',
+					'image'        => $images . rawurlencode( 'Exit Ticket TEKS K-13D - How Young Plants Resemble Parent Plants.png' ),
+					'url'          => 'https://www.teacherspayteachers.com/Product/Exit-Ticket-TEKS-K13D-How-Young-Plants-Resemble-Parent-Plants-15626613',
+					'difficulties' => array( 'easy', 'moderate', 'challenging', 'hard' ),
+				),
+			),
+		),
+	);
+
+	$subject_slug = sanitize_title( $subject_slug );
+	$grade_slug   = sanitize_title( $grade_slug );
+
+	if ( empty( $catalog[ $subject_slug ][ $grade_slug ] ) ) {
+		return array();
+	}
+
+	return $catalog[ $subject_slug ][ $grade_slug ];
+}
+
+/**
  * URL for a lesson cover image, if the asset exists.
  *
  * Prefers: markimatics/images/{subject}-{grade}-{lesson}-card.png
@@ -2505,7 +2699,7 @@ function markimatics_enqueue_assets() {
 	}
 
 	$base = get_stylesheet_directory_uri() . '/markimatics';
-	$ver  = '1.3.0';
+	$ver  = '1.3.1';
 
 	wp_enqueue_style(
 		'markimatics-variables',

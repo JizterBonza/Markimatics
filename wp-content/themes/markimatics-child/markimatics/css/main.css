@@ -995,6 +995,21 @@
   color: var(--mk-color-primary);
 }
 
+.mk-lessons__group {
+  margin-top: 0.25rem;
+}
+
+.mk-lessons__group + .mk-lessons__group {
+  margin-top: 2.75rem;
+}
+
+.mk-lessons__group > .mk-lesson-card__label {
+  display: inline-flex;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
 .mk-lessons__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

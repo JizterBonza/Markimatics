@@ -83,6 +83,7 @@ $hero_modifier = sanitize_html_class( $subject_slug );
 $grade_color   = isset( $grade_meta['color'] ) ? $grade_meta['color'] : '#004a99';
 
 $lesson_cards = markimatics_get_grade_lessons( $subject_slug, $grade_slug );
+$exit_tickets = markimatics_get_grade_exit_tickets( $subject_slug, $grade_slug );
 
 if ( empty( $lesson_cards ) ) {
 	$child_pages = get_pages(
@@ -112,6 +113,32 @@ if ( empty( $lesson_cards ) ) {
 			);
 		}
 	}
+}
+
+foreach ( $exit_tickets as $index => $ticket ) {
+	if ( empty( $ticket['image'] ) ) {
+		$exit_tickets[ $index ]['image'] = markimatics_get_lesson_card_image(
+			$subject_slug,
+			$grade_slug,
+			isset( $ticket['slug'] ) ? $ticket['slug'] : ''
+		);
+	}
+}
+
+$product_sections = array(
+	array(
+		'heading'    => __( 'Task Cards', 'markimatics-child' ),
+		'items'      => $lesson_cards,
+		'show_empty' => true,
+	),
+);
+
+if ( ! empty( $exit_tickets ) ) {
+	$product_sections[] = array(
+		'heading'    => __( 'Exit Tickets', 'markimatics-child' ),
+		'items'      => $exit_tickets,
+		'show_empty' => false,
+	);
 }
 ?>
 <!DOCTYPE html>
@@ -164,109 +191,112 @@ if ( empty( $lesson_cards ) ) {
 					<h2 class="mk-lessons__title" style="margin-bottom: 0px;"><?php esc_html_e( 'Select a Lesson', 'markimatics-child' ); ?></h2>
 				</header>
 
-				<span class="mk-lesson-card__label">Task Cards</span> <br>
+				<?php foreach ( $product_sections as $section ) : ?>
+					<div class="mk-lessons__group">
+						<span class="mk-lesson-card__label"><?php echo esc_html( $section['heading'] ); ?></span>
 
-				<?php if ( ! empty( $lesson_cards ) ) : ?>
-					<div class="mk-lessons__grid">
-						<?php foreach ( $lesson_cards as $lesson ) : ?>
-							<?php
-							$lesson_title  = isset( $lesson['title'] ) ? $lesson['title'] : '';
-							$lesson_label  = ! empty( $lesson['label'] ) ? $lesson['label'] : $lesson_title;
-							$lesson_url    = ! empty( $lesson['url'] ) ? $lesson['url'] : '';
-							$lesson_image  = ! empty( $lesson['image'] ) ? $lesson['image'] : '';
-							$lesson_badge  = ! empty( $lesson['badge'] ) ? $lesson['badge'] : __( 'TASK CARD', 'markimatics-child' );
-							$lesson_count  = isset( $lesson['count'] ) ? $lesson['count'] : '';
-							$lesson_action = isset( $lesson['action'] ) ? $lesson['action'] : __( 'Print, Cut, Laminate', 'markimatics-child' );
-							$difficulties  = ! empty( $lesson['difficulties'] ) && is_array( $lesson['difficulties'] )
-								? $lesson['difficulties']
-								: array( 'easy', 'moderate', 'challenging', 'hard' );
-							$has_cover     = (bool) $lesson_image;
-							$is_external   = $lesson_url && ( 0 === strpos( $lesson_url, 'http://' ) || 0 === strpos( $lesson_url, 'https://' ) );
-							$difficulty_labels = array(
-								'easy'        => __( 'EASY', 'markimatics-child' ),
-								'moderate'    => __( 'MODERATE', 'markimatics-child' ),
-								'challenging' => __( 'CHALLENGING', 'markimatics-child' ),
-								'hard'        => __( 'HARD', 'markimatics-child' ),
-							);
-							?>
-							<article class="mk-lesson-card<?php echo $has_cover ? ' mk-lesson-card--has-cover' : ''; ?>">
-								<?php if ( $lesson_url ) : ?>
-									<a
-										href="<?php echo esc_url( $lesson_url ); ?>"
-										class="mk-lesson-card__link"
-										<?php if ( $is_external ) : ?>
-											target="_blank"
-											rel="noopener noreferrer"
-										<?php endif; ?>
-									>
-								<?php else : ?>
-									<div class="mk-lesson-card__link mk-lesson-card__link--disabled">
-								<?php endif; ?>
-
-									<div class="mk-lesson-card__visual">
-										<?php if ( $has_cover ) : ?>
-											<img
-												src="<?php echo esc_url( $lesson_image ); ?>"
-												alt="<?php echo esc_attr( $lesson_title ); ?>"
-												class="mk-lesson-card__cover"
-												loading="lazy"
+						<?php if ( ! empty( $section['items'] ) ) : ?>
+							<div class="mk-lessons__grid">
+								<?php foreach ( $section['items'] as $lesson ) : ?>
+									<?php
+									$lesson_title  = isset( $lesson['title'] ) ? $lesson['title'] : '';
+									$lesson_label  = ! empty( $lesson['label'] ) ? $lesson['label'] : $lesson_title;
+									$lesson_url    = ! empty( $lesson['url'] ) ? $lesson['url'] : '';
+									$lesson_image  = ! empty( $lesson['image'] ) ? $lesson['image'] : '';
+									$lesson_badge  = ! empty( $lesson['badge'] ) ? $lesson['badge'] : __( 'TASK CARD', 'markimatics-child' );
+									$lesson_count  = isset( $lesson['count'] ) ? $lesson['count'] : '';
+									$lesson_action = isset( $lesson['action'] ) ? $lesson['action'] : __( 'Print, Cut, Laminate', 'markimatics-child' );
+									$difficulties  = ! empty( $lesson['difficulties'] ) && is_array( $lesson['difficulties'] )
+										? $lesson['difficulties']
+										: array( 'easy', 'moderate', 'challenging', 'hard' );
+									$has_cover     = (bool) $lesson_image;
+									$is_external   = $lesson_url && ( 0 === strpos( $lesson_url, 'http://' ) || 0 === strpos( $lesson_url, 'https://' ) );
+									$difficulty_labels = array(
+										'easy'        => __( 'EASY', 'markimatics-child' ),
+										'moderate'    => __( 'MODERATE', 'markimatics-child' ),
+										'challenging' => __( 'CHALLENGING', 'markimatics-child' ),
+										'hard'        => __( 'HARD', 'markimatics-child' ),
+									);
+									?>
+									<article class="mk-lesson-card<?php echo $has_cover ? ' mk-lesson-card--has-cover' : ''; ?>">
+										<?php if ( $lesson_url ) : ?>
+											<a
+												href="<?php echo esc_url( $lesson_url ); ?>"
+												class="mk-lesson-card__link"
+												<?php if ( $is_external ) : ?>
+													target="_blank"
+													rel="noopener noreferrer"
+												<?php endif; ?>
 											>
 										<?php else : ?>
-											<div class="mk-lesson-card__composed" aria-hidden="false">
-												<span class="mk-lesson-card__ribbon"><?php echo esc_html( $lesson_badge ); ?></span>
+											<div class="mk-lesson-card__link mk-lesson-card__link--disabled">
+										<?php endif; ?>
 
-												<div class="mk-lesson-card__title-bar">
-													<h3 class="mk-lesson-card__title"><?php echo esc_html( $lesson_title ); ?></h3>
-												</div>
+											<div class="mk-lesson-card__visual">
+												<?php if ( $has_cover ) : ?>
+													<img
+														src="<?php echo esc_url( $lesson_image ); ?>"
+														alt="<?php echo esc_attr( $lesson_title ); ?>"
+														class="mk-lesson-card__cover"
+														loading="lazy"
+													>
+												<?php else : ?>
+													<div class="mk-lesson-card__composed" aria-hidden="false">
+														<span class="mk-lesson-card__ribbon"><?php echo esc_html( $lesson_badge ); ?></span>
 
-												<div class="mk-lesson-card__meta">
-													<?php if ( $lesson_count ) : ?>
-														<span class="mk-lesson-card__count"><?php echo esc_html( $lesson_count ); ?></span>
-													<?php endif; ?>
-													<span class="mk-lesson-card__action"><?php echo esc_html( $lesson_action ); ?></span>
-												</div>
+														<div class="mk-lesson-card__title-bar">
+															<h3 class="mk-lesson-card__title"><?php echo esc_html( $lesson_title ); ?></h3>
+														</div>
 
-												<div class="mk-lesson-card__preview">
-													<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--1"></span>
-													<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--2"></span>
-													<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--3"></span>
-													<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--4"></span>
-												</div>
+														<div class="mk-lesson-card__meta">
+															<?php if ( $lesson_count ) : ?>
+																<span class="mk-lesson-card__count"><?php echo esc_html( $lesson_count ); ?></span>
+															<?php endif; ?>
+															<span class="mk-lesson-card__action"><?php echo esc_html( $lesson_action ); ?></span>
+														</div>
 
-												<ul class="mk-lesson-card__levels">
-													<?php foreach ( $difficulties as $level ) : ?>
-														<?php
-														$level_key = sanitize_title( $level );
-														$level_text = isset( $difficulty_labels[ $level_key ] )
-															? $difficulty_labels[ $level_key ]
-															: strtoupper( $level );
-														?>
-														<li class="mk-lesson-card__level mk-lesson-card__level--<?php echo esc_attr( $level_key ); ?>">
-															<span class="mk-lesson-card__level-check" aria-hidden="true">✓</span>
-															<span class="mk-lesson-card__level-label"><?php echo esc_html( $level_text ); ?></span>
-														</li>
-													<?php endforeach; ?>
-												</ul>
+														<div class="mk-lesson-card__preview">
+															<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--1"></span>
+															<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--2"></span>
+															<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--3"></span>
+															<span class="mk-lesson-card__preview-card mk-lesson-card__preview-card--4"></span>
+														</div>
+
+														<ul class="mk-lesson-card__levels">
+															<?php foreach ( $difficulties as $level ) : ?>
+																<?php
+																$level_key = sanitize_title( $level );
+																$level_text = isset( $difficulty_labels[ $level_key ] )
+																	? $difficulty_labels[ $level_key ]
+																	: strtoupper( $level );
+																?>
+																<li class="mk-lesson-card__level mk-lesson-card__level--<?php echo esc_attr( $level_key ); ?>">
+																	<span class="mk-lesson-card__level-check" aria-hidden="true">✓</span>
+																	<span class="mk-lesson-card__level-label"><?php echo esc_html( $level_text ); ?></span>
+																</li>
+															<?php endforeach; ?>
+														</ul>
+													</div>
+												<?php endif; ?>
+											</div>
+
+											<span class="mk-lesson-card__label"><?php echo esc_html( $lesson_label ); ?></span>
+
+										<?php if ( $lesson_url ) : ?>
+											</a>
+										<?php else : ?>
 											</div>
 										<?php endif; ?>
-									</div>
-
-									<span class="mk-lesson-card__label"><?php echo esc_html( $lesson_label ); ?></span>
-
-								<?php if ( $lesson_url ) : ?>
-									</a>
-								<?php else : ?>
-									</div>
-								<?php endif; ?>
-							</article>
-						<?php endforeach; ?>
+									</article>
+								<?php endforeach; ?>
+							</div>
+						<?php elseif ( ! empty( $section['show_empty'] ) ) : ?>
+							<p class="mk-lessons__empty">
+								<?php esc_html_e( 'Lessons coming soon. Add lesson entries for this grade, or create child pages under this grade page.', 'markimatics-child' ); ?>
+							</p>
+						<?php endif; ?>
 					</div>
-				<?php else : ?>
-					<p class="mk-lessons__empty">
-						<?php esc_html_e( 'Lessons coming soon. Add lesson entries for this grade, or create child pages under this grade page.', 'markimatics-child' ); ?>
-					</p>
-				<?php endif; ?>
-				<span class="mk-lesson-card__label">Exit Tickets</span> <br
+				<?php endforeach; ?>
 			</div>
 		</section>
 	</main>
