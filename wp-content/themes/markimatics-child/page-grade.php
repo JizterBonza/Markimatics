@@ -164,7 +164,7 @@ if ( empty( $lesson_cards ) ) {
 					<h2 class="mk-lessons__title" style="margin-bottom: 0px;"><?php esc_html_e( 'Select a Lesson', 'markimatics-child' ); ?></h2>
 				</header>
 
-				<span class="mk-lesson-card__label">Task Cards</span>
+				<span class="mk-lesson-card__label">Task Cards</span> <br>
 
 				<?php if ( ! empty( $lesson_cards ) ) : ?>
 					<div class="mk-lessons__grid">
@@ -266,7 +266,7 @@ if ( empty( $lesson_cards ) ) {
 						<?php esc_html_e( 'Lessons coming soon. Add lesson entries for this grade, or create child pages under this grade page.', 'markimatics-child' ); ?>
 					</p>
 				<?php endif; ?>
-				<span class="mk-lesson-card__label">Exit Tickets</span>
+				<span class="mk-lesson-card__label">Exit Tickets</span> <br
 			</div>
 		</section>
 	</main>
