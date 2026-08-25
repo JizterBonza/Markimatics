@@ -193,7 +193,7 @@ if ( ! empty( $exit_tickets ) ) {
 
 				<?php foreach ( $product_sections as $section ) : ?>
 					<div class="mk-lessons__group">
-						<span class="mk-lesson-card__label"><?php echo esc_html( $section['heading'] ); ?></span>
+						<span class="mk-lesson-card__label" style="width: 100%;"><?php echo esc_html( $section['heading'] ); ?></span>
 
 						<?php if ( ! empty( $section['items'] ) ) : ?>
 							<div class="mk-lessons__grid">
